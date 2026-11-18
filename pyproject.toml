@@ -10,7 +10,6 @@ dependencies = [
     # API y demo
     "fastapi>=0.115",
     "uvicorn[standard]>=0.30",
-    "streamlit>=1.38",
     "httpx>=0.27",
     # Base de datos
     "psycopg[binary]>=3.2",
