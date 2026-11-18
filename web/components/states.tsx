@@ -37,7 +37,7 @@ export function NoAnswerCard({ explanation, suggestion, onAsk }: NoAnswerProps) 
   );
 }
 
-/** Mensaje de error según lo que pasó y qué hacer (DESIGN.md, Estados). */
+/** Mensaje de error según lo que pasó y qué hacer. */
 export function errorMessage(error: ApiError | null): string {
   switch (error?.codigo) {
     case 400:

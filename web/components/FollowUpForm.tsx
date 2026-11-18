@@ -11,7 +11,7 @@ type Props = {
   disabled?: boolean;
 };
 
-/** Campo fijo abajo para seguir preguntando (Respuesta.dc.html). */
+/** Campo fijo abajo para seguir preguntando. */
 export function FollowUpForm({ onAsk, mode, onModeChange, disabled = false }: Props) {
   const [question, setQuestion] = useState("");
 

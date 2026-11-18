@@ -10,7 +10,6 @@ dependencies = [
     # API y demo
     "fastapi>=0.115",
     "uvicorn[standard]>=0.30",
-    "httpx>=0.27",
     # Base de datos
     "psycopg[binary]>=3.2",
     "pgvector>=0.3",
@@ -22,15 +21,18 @@ dependencies = [
     # Configuración
     "pydantic>=2.7",
     "pydantic-settings>=2.4",
-    "python-dotenv>=1.0",
     # Chunking fijo por tokens y utilidades
     "tiktoken>=0.7",
-    "tqdm>=4.66",
     "rapidfuzz>=3.14.6",
+    "jiter>=0.5",
 ]
 
 [dependency-groups]
-dev = ["pytest>=8.0", "ruff>=0.6"]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
 
 [tool.uv]
 package = false

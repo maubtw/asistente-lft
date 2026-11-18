@@ -1,4 +1,4 @@
-/** Íconos de las maquetas (docs/design/referencia). Decorativos: aria-hidden. */
+/** Íconos de la interfaz. Decorativos: aria-hidden. */
 
 export function SealLogo({ size = 28 }: { size?: number }) {
   return (

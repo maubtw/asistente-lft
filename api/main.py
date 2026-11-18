@@ -2,7 +2,7 @@
 
     uv run uvicorn api.main:app --reload
 
-- POST /ask              pregunta → respuesta estructurada con pasajes (contrato de DESIGN.md)
+- POST /ask              pregunta → respuesta estructurada con pasajes (contrato: AskResponse)
 - POST /ask/stream       lo mismo por Server-Sent Events: etapa, articulos, frase, parrafo, fin
 - GET  /meta             fecha de última reforma y número de artículos vigentes
 - GET  /articulo/{id}    texto completo de un artículo (p. ej. /articulo/76, /articulo/3%20Bis)
@@ -37,7 +37,7 @@ logger = logging.getLogger("asistente_lft")
 EventsFn = Callable[[str, Settings], Iterator[dict]]
 
 
-# --- Contrato (docs/design/DESIGN.md, "Contrato de API que necesita este diseño") ---------
+# --- Contrato de la respuesta (lo consume el frontend: web/lib/api.ts) ------------------
 
 
 class AskRequest(BaseModel):

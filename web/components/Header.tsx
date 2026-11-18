@@ -26,7 +26,7 @@ export function HomeHeader(props: SettingsProps) {
   );
 }
 
-/** Conversación (Respuesta.dc.html): logo a la izquierda, "Nueva consulta" y Ajustes. */
+/** Conversación: logo a la izquierda, "Nueva consulta" y Ajustes. */
 export function ConversationHeader({ onNewQuery, ...props }: SettingsProps & { onNewQuery: () => void }) {
   return (
     <header className="flex flex-wrap items-center justify-between gap-4 border-b border-linea px-[clamp(20px,4vw,48px)] py-4">

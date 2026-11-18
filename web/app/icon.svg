@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34">
+  <circle cx="17" cy="17" r="16" fill="#F7F8F5" stroke="#4536A6" stroke-width="1.5"/>
+  <circle cx="17" cy="17" r="12.5" fill="none" stroke="#4536A6" stroke-width="0.75"/>
+  <text x="17" y="22.5" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#4536A6">§</text>
+</svg>

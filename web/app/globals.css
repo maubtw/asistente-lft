@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Tokens de docs/design/DESIGN.md. Un solo acento (sello); sin modo oscuro en esta versión. */
+/* Tokens de diseño. Un solo acento (sello); sin modo oscuro en esta versión. */
 @theme {
   --color-papel: #eceeea;
   --color-hoja: #f7f8f5;
@@ -34,7 +34,7 @@
     font-family: var(--font-sans);
   }
 
-  /* Foco visible (DESIGN.md, Accesibilidad) */
+  /* Foco visible para teclado */
   button:focus-visible,
   textarea:focus-visible,
   input:focus-visible,
@@ -53,7 +53,7 @@
   }
 }
 
-/* Resaltador: el único momento animado (DESIGN.md, Movimiento). Se "pinta" de izquierda a
+/* Resaltador: el único momento animado de la interfaz. Se "pinta" de izquierda a
    derecha al cambiar de artículo; con prefers-reduced-motion aparece completo. */
 mark.highlight {
   color: inherit;

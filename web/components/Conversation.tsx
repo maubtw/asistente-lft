@@ -22,7 +22,7 @@ type Props = SettingsProps & {
   onRetry: (turnId: number) => void;
 };
 
-/** Conversación a la izquierda; panel de la ley a la derecha (Respuesta.dc.html). */
+/** Conversación a la izquierda; panel de la ley a la derecha. */
 export function Conversation(props: Props) {
   const { turns, selection, extraArticles, mode, onModeChange, onAsk, onNewQuery, onSelect } = props;
   const loading = turns.some((t) => t.estado === "cargando");

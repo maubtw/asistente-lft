@@ -145,7 +145,7 @@ def validate_paragraph(parrafo: Parrafo, store: ArticleStore) -> tuple[dict, lis
 def build_contract(
     answer: StructuredAnswer, store: ArticleStore, fecha: str | None
 ) -> tuple[dict, list[dict]]:
-    """El JSON de docs/design/DESIGN.md (sección "Contrato de API")."""
+    """El JSON de respuesta de la API (ver `AskResponse` en api/main.py)."""
     parrafos, checks = [], []
     for parrafo in answer.parrafos:
         contract_paragraph, paragraph_checks = validate_paragraph(parrafo, store)

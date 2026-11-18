@@ -522,7 +522,7 @@ híbrida + reranker (max) + expansión de referencias + reescritura de consulta.
 
 ## 2026-11-18 — Rediseño, fase 1: respuesta estructurada con pasajes literales (backend)
 
-El diseño nuevo (`docs/design/DESIGN.md`) pone la respuesta y la ley lado a lado: cada cita abre el
+El diseño nuevo pone la respuesta y la ley lado a lado: cada cita abre el
 artículo con **el pasaje exacto resaltado**. Para eso el backend tiene que devolver, por cada
 afirmación, la frase literal del artículo que la sustenta.
 
@@ -581,7 +581,7 @@ diseño y deja una métrica nueva y fuerte para el README.
 
 ## 2026-11-18 — Rediseño, fase 2: frontend en Next.js (`web/`)
 
-Next.js 16 (App Router) + TypeScript + Tailwind 4. Los tokens de `DESIGN.md` viven en `@theme`
+Next.js 16 (App Router) + TypeScript + Tailwind 4. Los tokens de diseño viven en `@theme`
 (`web/app/globals.css`) con sus nombres en español (`bg-papel`, `text-tinta`, `bg-sello`…); Source
 Serif 4 (con eje `opsz`) e Instrument Sans vía `next/font`. Se habla con FastAPI desde el navegador
 (`NEXT_PUBLIC_API_URL`), por SSE con `fetch` + `ReadableStream`.
@@ -598,8 +598,8 @@ error con "Reintentar" (y "Abrir ajustes" si el problema es la clave); popover d
 - El avance por etapas (opción 1) reemplaza el "Buscando en la ley…" fijo del panel.
 
 **Desviaciones de las maquetas, con motivo:**
-- Hover del botón de enviar: token `sello-oscuro` (`#2E2380`), no el `#3A2C93` de `Main.dc.html`
-  (los tokens de `DESIGN.md` mandan; un solo valor de hover).
+- Hover del botón de enviar: token `sello-oscuro` (`#2E2380`), no el `#3A2C93` de la maqueta
+  (los tokens mandan; un solo valor de hover).
 - Foco visible en los campos: las maquetas quitan el contorno del textarea/input; se muestra sobre la
   tarjeta completa (`has-[textarea:focus-visible]`), como pide la sección de accesibilidad.
 - "Leer la ley completa" (PDF oficial) en lugar de "Leer el capítulo completo": no hay forma de

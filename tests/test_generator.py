@@ -10,7 +10,6 @@ from rag.generator import (
     SYSTEM_PROMPT,
     apply_structured_rules,
     build_messages,
-    extract_citations,
     format_context,
     generate,
     normalize_citation,
@@ -135,11 +134,6 @@ def test_invalid_model_output_is_sin_respuesta(raw: str) -> None:
 )
 def test_normalize_citation(raw: str, expected: str) -> None:
     assert normalize_citation(raw) == expected
-
-
-def test_extract_citations_from_plain_text() -> None:
-    text = "Uno (Art. 76, LFT) y (Art. 132, XXVII Bis, LFT) y (Art. 3 Bis, LFT) (Art. 76, LFT)"
-    assert extract_citations(text) == ["76", "132", "3 Bis"]
 
 
 def test_parse_partial_json() -> None:

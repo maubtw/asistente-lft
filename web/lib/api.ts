@@ -1,4 +1,4 @@
-/** Cliente de la API (FastAPI). Tipos del contrato de docs/design/DESIGN.md. */
+/** Cliente de la API (FastAPI). Tipos del contrato de respuesta (`AskResponse` en api/main.py). */
 
 export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 

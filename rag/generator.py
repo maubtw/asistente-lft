@@ -98,13 +98,6 @@ RESPONSE_FORMAT = {
     "json_schema": {"name": "respuesta_lft", "strict": True, "schema": ANSWER_SCHEMA},
 }
 
-# (Art. 76, LFT) en el texto plano derivado; también se reconocen variantes que escriben modelos.
-CITATION_RE = re.compile(
-    r"\(\s*Art(?:[íi]culo|\.)\s*(?P<id>\d{1,4}(?:o\.?|º)?(?:-[A-ZÑ])?(?:\s+(?:Bis|Ter|Qu[aá]ter))?)"
-    r"(?:(?:\s*,\s*|\s+)(?P<detalle>[^(),]{1,40}?))?"
-    r"\s*,\s*LFT\s*\)"
-)
-
 CompletionFn = Callable[[list[dict]], str]
 StreamFn = Callable[[list[dict]], Iterator[str]]
 Estado = Literal["respondida", "sin_respuesta"]
@@ -201,11 +194,6 @@ def normalize_citation(raw_id: str) -> str:
     citation = re.sub(r"(\d)(?:o\.?|º)", r"\1", citation)
     citation = re.sub(r"\s+", " ", citation).strip()
     return citation.replace("Quater", "Quáter")
-
-
-def extract_citations(text: str) -> list[str]:
-    """Citas (Art. X, LFT) de un texto plano, sin repetir."""
-    return list(dict.fromkeys(normalize_citation(m["id"]) for m in CITATION_RE.finditer(text)))
 
 
 def abstention(frase: str | None = None, sugerencia: str | None = None) -> StructuredAnswer:

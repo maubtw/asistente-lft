@@ -124,7 +124,7 @@ consultar a OpenAI. Nunca se guarda en el servidor y el navegador la borra al ce
 
 ```bash
 make pdf parse          # regenerar data/processed/lft.jsonl desde el PDF oficial más reciente
-make test               # 181 tests de Python + TypeScript y ESLint del frontend
+make test               # 180 tests de Python + TypeScript y ESLint del frontend
 make eval CONFIG=completo   # evaluación completa: usa OPENAI_API_KEY del .env (~80 llamadas)
 uv run python -m rag.pipeline "¿Cuándo me tienen que pagar el aguinaldo?" --debug   # CLI
 ```
@@ -141,7 +141,7 @@ rag/        retriever, reranker, reescritura, generador, validación de pasajes 
 api/        FastAPI: /ask, /ask/stream, /articulo/{id}, /meta
 web/        Next.js + Tailwind: inicio, conversación y panel de la ley enlazados
 eval/       40 preguntas, métricas, juez, caché de reescrituras y resultados de cada corrida
-docs/       decisiones.md (cada experimento con sus números) y diseño de la interfaz
+docs/       decisiones.md (cada experimento con sus números) y el GIF de la demo
 tests/      parser, validación de pasajes, métricas, retriever, streaming y API
 ```
 

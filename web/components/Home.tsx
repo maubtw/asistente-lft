@@ -13,7 +13,7 @@ type Props = SettingsProps & {
   onAsk: (question: string) => void;
 };
 
-/** Pantalla de inicio (docs/design/referencia/Main.dc.html), con la marca al centro. */
+/** Pantalla de inicio, con la marca al centro. */
 export function Home({ meta, mode, onModeChange, onAsk, ...settings }: Props) {
   const fecha = formatLongDate(meta?.fecha_reforma);
   return (
