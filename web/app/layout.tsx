@@ -22,7 +22,8 @@ export const metadata: Metadata = {
     "Pregúntale a la Ley Federal del Trabajo y lee el artículo exacto que sustenta cada respuesta.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+// Tipo explícito: `LayoutProps` lo genera Next al correr dev/build y no existe en un clon limpio.
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className={`${sourceSerif.variable} ${instrumentSans.variable} antialiased`}>
       <body className="min-h-screen">{children}</body>
