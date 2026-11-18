@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* Tokens de docs/design/DESIGN.md. Un solo acento (sello); sin modo oscuro en esta versión. */
+@theme {
+  --color-papel: #eceeea;
+  --color-hoja: #f7f8f5;
+  --color-hoja-pie: #eff1ec;
+  --color-tinta: #18202b;
+  --color-tinta-ley: #2a323d;
+  --color-grafito: #4f5864;
+  --color-grafito-claro: #5d6570;
+  --color-sello: #4536a6;
+  --color-sello-oscuro: #2e2380;
+  --color-sello-claro: #e2def6;
+  --color-resaltador: #e9f27a;
+  --color-burbuja: #e1e4de;
+  --color-linea: #cdd2cb;
+  --color-borde-campo: #b9bfb7;
+
+  --font-serif: var(--font-source-serif), Georgia, serif;
+  --font-sans: var(--font-instrument-sans), system-ui, sans-serif;
+
+  --shadow-campo: 0 24px 48px -32px rgba(24, 32, 43, 0.35);
+}
+
+@layer base {
+  html {
+    background: var(--color-papel);
+  }
+
+  body {
+    background: var(--color-papel);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
+  }
+
+  /* Foco visible (DESIGN.md, Accesibilidad) */
+  button:focus-visible,
+  textarea:focus-visible,
+  input:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--color-sello);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Resaltador: el único momento animado (DESIGN.md, Movimiento). Se "pinta" de izquierda a
+   derecha al cambiar de artículo; con prefers-reduced-motion aparece completo. */
+mark.highlight {
+  color: inherit;
+  padding: 0 2px;
+  background-color: transparent;
+  background-image: linear-gradient(
+    transparent 14%,
+    var(--color-resaltador) 14%,
+    var(--color-resaltador) 90%,
+    transparent 90%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  animation: paint-highlight 350ms ease-out both;
+}
+
+@keyframes paint-highlight {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}

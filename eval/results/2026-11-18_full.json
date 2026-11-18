@@ -1,0 +1,2532 @@
+{
+  "config": "full",
+  "config_flags": "by_article+hybrid+rerank+refs+rewrite",
+  "fecha": "2026-11-18T08:37:46",
+  "fecha_reforma_ley": "2026-05-14",
+  "settings": {
+    "llm_model": "gpt-5-mini",
+    "judge_model": "gpt-5-mini",
+    "llm_reasoning_effort": "low",
+    "rewrite_model": "",
+    "rewrite_reasoning_effort": "minimal",
+    "embedding_model": "BAAI/bge-m3",
+    "reranker_model": "BAAI/bge-reranker-v2-m3",
+    "embedding_batch_size": 16,
+    "max_chunk_tokens": 800,
+    "chunking_strategy": "by_article",
+    "use_hybrid": true,
+    "use_reranker": true,
+    "use_reference_expansion": true,
+    "use_query_rewrite": true,
+    "top_k": 5,
+    "retrieve_k": 20,
+    "rrf_k": 60,
+    "lexical_ranking": "idf",
+    "max_reference_articles": 3,
+    "hnsw_ef_search": 100
+  },
+  "juez": "gpt-5-mini",
+  "metricas": {
+    "n_preguntas": 40,
+    "hit@1": 0.6944,
+    "hit@5": 0.8611,
+    "mrr": 0.7579,
+    "recall@5": 0.8287,
+    "hit@ctx": 0.8889,
+    "recall@ctx": 0.8796,
+    "abstencion_correcta": 1.0,
+    "falsa_abstencion": 0.0833,
+    "cita_valida": 1.0,
+    "cita_esperada": 0.8889,
+    "fidelidad": 5,
+    "correccion": 4.5833,
+    "latencia_ms": 10538.275,
+    "tokens_contexto": 1937.175
+  },
+  "preguntas": [
+    {
+      "id": "q01",
+      "pregunta": "¿Cuántos días de vacaciones me tocan en mi primer año de trabajo?",
+      "categoria": "vacaciones",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "76"
+      ],
+      "recuperados": [
+        [
+          "76"
+        ],
+        [
+          "78"
+        ],
+        [
+          "81"
+        ],
+        [
+          "179"
+        ],
+        [
+          "199"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Puede interpretarse de dos maneras:\n\n- Si con \"primer año\" te refieres a haber cumplido un año de servicios (tener más de un año), corresponderán, como mínimo, doce días laborables de vacaciones pagadas. (Art. 76, LFT)  \n- Las vacaciones deben concederse dentro de los seis meses siguientes al cumplimiento del año de servicios. (Art. 81, LFT)\n\nConsideraciones especiales: si eres menor de 18 años te corresponden, por lo menos, 18 días laborables anuales. (Art. 179, LFT) Si trabajas en un buque, el mínimo para el primer año es también de doce días laborables. (Art. 199, LFT)",
+      "respuesta_modelo": "Puede interpretarse de dos maneras:\n\n- Si con \"primer año\" te refieres a haber cumplido un año de servicios (tener más de un año), corresponderán, como mínimo, doce días laborables de vacaciones pagadas. (Art. 76, LFT)  \n- Las vacaciones deben concederse dentro de los seis meses siguientes al cumplimiento del año de servicios. (Art. 81, LFT)\n\nConsideraciones especiales: si eres menor de 18 años te corresponden, por lo menos, 18 días laborables anuales. (Art. 179, LFT) Si trabajas en un buque, el mínimo para el primer año es también de doce días laborables. (Art. 199, LFT)",
+      "citas": [
+        "76",
+        "81",
+        "179",
+        "199"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta se basa en los artículos citados (Arts. 76, 81, 179 y 199) y responde correctamente que, al cumplir un año de servicio, corresponden al menos 12 días laborables (con excepciones señaladas para menores y casos de buques).",
+      "tokens_contexto": 538,
+      "tokens_prompt": 988,
+      "latencias_ms": {
+        "recuperacion": 4189,
+        "generacion": 6847,
+        "total": 11036
+      },
+      "consulta_reescrita": "¿Cuál es el período anual de descanso remunerado que corresponde al trabajador durante su primer año de servicio?"
+    },
+    {
+      "id": "q02",
+      "pregunta": "Llevo 3 años en la empresa, ¿cuántos días de vacaciones tengo?",
+      "categoria": "vacaciones",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "76"
+      ],
+      "recuperados": [
+        [
+          "76"
+        ],
+        [
+          "78"
+        ],
+        [
+          "81"
+        ],
+        [
+          "69"
+        ],
+        [
+          "199"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Hay dos interpretaciones posibles: si ya cumpliste 3 años completos, y si estás en tu tercer año pero no lo has cumplido. (Art. 76, LFT)\n\nSi ya cumpliste 3 años completos, corresponde 16 días de vacaciones; si estás en tu tercer año pero sólo has cumplido 2 años, corresponde 14 días. (Art. 76, LFT)\n\nDel total que te corresponda, deberás disfrutar por lo menos doce días continuos; además las vacaciones deben concederse dentro de los seis meses siguientes al cumplimiento del año de servicios. (Art. 78, LFT) (Art. 81, LFT)",
+      "respuesta_modelo": "Hay dos interpretaciones posibles: si ya cumpliste 3 años completos, y si estás en tu tercer año pero no lo has cumplido. (Art. 76, LFT)\n\nSi ya cumpliste 3 años completos, corresponde 16 días de vacaciones; si estás en tu tercer año pero sólo has cumplido 2 años, corresponde 14 días. (Art. 76, LFT)\n\nDel total que te corresponda, deberás disfrutar por lo menos doce días continuos; además las vacaciones deben concederse dentro de los seis meses siguientes al cumplimiento del año de servicios. (Art. 78, LFT) (Art. 81, LFT)",
+      "citas": [
+        "76",
+        "78",
+        "81"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta cita correctamente los artículos 76, 78 y 81 y calcula bien los días (3 años = 16 días; si sólo se tienen 2 años cumplidos = 14 días) y los requisitos de disfrute y plazo.",
+      "tokens_contexto": 547,
+      "tokens_prompt": 999,
+      "latencias_ms": {
+        "recuperacion": 5194,
+        "generacion": 7304,
+        "total": 12498
+      },
+      "consulta_reescrita": "Tras tres años de servicio, ¿cuál es el periodo anual de vacaciones pagadas que me corresponde conforme a la Ley Federal del Trabajo?"
+    },
+    {
+      "id": "q03",
+      "pregunta": "¿Me pueden pagar las vacaciones en lugar de dármelas?",
+      "categoria": "vacaciones",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "79"
+      ],
+      "recuperados": [
+        [
+          "79"
+        ],
+        [
+          "76"
+        ],
+        [
+          "331 Ter"
+        ],
+        [
+          "280"
+        ],
+        [
+          "72"
+        ],
+        [
+          "1"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "No; las vacaciones no podrán compensarse con una remuneración. (Art. 79, LFT)\n\nSi la relación de trabajo termina antes de que se cumpla el año de servicios, el trabajador tendrá derecho a una remuneración proporcional al tiempo de servicios prestados. (Art. 79, LFT)\n\nLas personas trabajadoras que tengan más de un año de servicios disfrutarán de un periodo anual de vacaciones pagadas, que en ningún caso podrá ser inferior a doce días laborables. (Art. 76, LFT)",
+      "respuesta_modelo": "No; las vacaciones no podrán compensarse con una remuneración. (Art. 79, LFT)\n\nSi la relación de trabajo termina antes de que se cumpla el año de servicios, el trabajador tendrá derecho a una remuneración proporcional al tiempo de servicios prestados. (Art. 79, LFT)\n\nLas personas trabajadoras que tengan más de un año de servicios disfrutarán de un periodo anual de vacaciones pagadas, que en ningún caso podrá ser inferior a doce días laborables. (Art. 76, LFT)",
+      "citas": [
+        "79",
+        "76"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "Correcto: la respuesta se basa en el Art. 79 (prohibición de compensar vacaciones y pago proporcional si termina la relación antes del año) y añade información coherente del Art. 76 sobre el periodo mínimo de vacaciones.",
+      "tokens_contexto": 1188,
+      "tokens_prompt": 1635,
+      "latencias_ms": {
+        "recuperacion": 5382,
+        "generacion": 5280,
+        "total": 10662
+      },
+      "consulta_reescrita": "¿Es procedente la remuneración en dinero de las vacaciones en lugar de su disfrute por el trabajador?"
+    },
+    {
+      "id": "q04",
+      "pregunta": "¿Qué es la prima vacacional y de cuánto es?",
+      "categoria": "vacaciones",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "80"
+      ],
+      "recuperados": [
+        [
+          "80"
+        ],
+        [
+          "291-F"
+        ],
+        [
+          "280"
+        ],
+        [
+          "334 Bis"
+        ],
+        [
+          "71"
+        ],
+        [
+          "291-C"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "La prima vacacional es la cantidad adicional que se paga sobre los salarios que corresponden durante el periodo de vacaciones (Art. 80, LFT).  \nSu monto es no menor de veinticinco por ciento sobre esos salarios (Art. 80, LFT).  \nEs una prestación reconocida expresamente para personas trabajadoras del hogar (Art. 334 Bis, LFT) y, en el caso de trabajo en plataformas digitales, el pago por tarea debe contemplar el proporcional de prima vacacional (Art. 291-F, LFT).",
+      "respuesta_modelo": "La prima vacacional es la cantidad adicional que se paga sobre los salarios que corresponden durante el periodo de vacaciones (Art. 80, LFT).  \nSu monto es no menor de veinticinco por ciento sobre esos salarios (Art. 80, LFT).  \nEs una prestación reconocida expresamente para personas trabajadoras del hogar (Art. 334 Bis, LFT) y, en el caso de trabajo en plataformas digitales, el pago por tarea debe contemplar el proporcional de prima vacacional (Art. 291-F, LFT).",
+      "citas": [
+        "80",
+        "334 Bis",
+        "291-F"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta define la prima vacacional y señala su monto mínimo del 25% apoyándose en el Art. 80 y cita correctamente las disposiciones relacionadas (Art. 334 Bis y Art. 291-F).",
+      "tokens_contexto": 1225,
+      "tokens_prompt": 1671,
+      "latencias_ms": {
+        "recuperacion": 4506,
+        "generacion": 4965,
+        "total": 9471
+      },
+      "consulta_reescrita": "¿Cuál es la naturaleza jurídica de la prima vacacional y cuál es su porcentaje o cuantía aplicable?"
+    },
+    {
+      "id": "q05",
+      "pregunta": "¿Puedo tomar mis vacaciones en días separados o tienen que ser seguidos?",
+      "categoria": "vacaciones",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "78"
+      ],
+      "recuperados": [
+        [
+          "78"
+        ],
+        [
+          "76"
+        ],
+        [
+          "336"
+        ],
+        [
+          "199"
+        ],
+        [
+          "233"
+        ],
+        [
+          "74"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "En general: el periodo anual de vacaciones debe comprender, por lo menos, doce días continuos, aunque a potestad de la persona trabajadora dicho periodo podrá ser distribuido en la forma y tiempo que requiera (Art. 78, LFT).\n\nCasos especiales: para trabajadores de buques las vacaciones podrán fraccionarse cuando lo exija la continuidad del trabajo (Art. 199, LFT). Para tripulantes aeronáuticos el período anual es de treinta días de calendario y podrá disfrutarse semestralmente en forma proporcional (Art. 233, LFT).",
+      "respuesta_modelo": "En general: el periodo anual de vacaciones debe comprender, por lo menos, doce días continuos, aunque a potestad de la persona trabajadora dicho periodo podrá ser distribuido en la forma y tiempo que requiera (Art. 78, LFT).\n\nCasos especiales: para trabajadores de buques las vacaciones podrán fraccionarse cuando lo exija la continuidad del trabajo (Art. 199, LFT). Para tripulantes aeronáuticos el período anual es de treinta días de calendario y podrá disfrutarse semestralmente en forma proporcional (Art. 233, LFT).",
+      "citas": [
+        "78",
+        "199",
+        "233"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta cita correctamente el Art. 78 y los artículos especiales (199 y 233) presentes en el contexto, y responde adecuadamente que debe haber por lo menos doce días continuos pero que el periodo puede distribuirse según lo requiera la persona trabajadora.",
+      "tokens_contexto": 914,
+      "tokens_prompt": 1366,
+      "latencias_ms": {
+        "recuperacion": 4175,
+        "generacion": 5145,
+        "total": 9320
+      },
+      "consulta_reescrita": "¿Es procedente fraccionar el periodo anual de vacaciones o deben disfrutarse de manera continuada e ininterrumpida?"
+    },
+    {
+      "id": "q06",
+      "pregunta": "¿Cuándo me tienen que pagar el aguinaldo?",
+      "categoria": "aguinaldo",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "87"
+      ],
+      "recuperados": [
+        [
+          "87"
+        ],
+        [
+          "280"
+        ],
+        [
+          "804"
+        ],
+        [
+          "291-F"
+        ],
+        [
+          "89"
+        ],
+        [
+          "291-C"
+        ],
+        [
+          "84"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "El aguinaldo anual debe pagarse antes del día veinte de diciembre y será, por lo menos, equivalente a quince días de salario; quienes no hayan cumplido el año de servicios tienen derecho a que se les pague la parte proporcional conforme al tiempo trabajado, cualquiera que fuere éste. (Art. 87, LFT)",
+      "respuesta_modelo": "El aguinaldo anual debe pagarse antes del día veinte de diciembre y será, por lo menos, equivalente a quince días de salario; quienes no hayan cumplido el año de servicios tienen derecho a que se les pague la parte proporcional conforme al tiempo trabajado, cualquiera que fuere éste. (Art. 87, LFT)",
+      "citas": [
+        "87"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta reproduce exactamente lo dispuesto en el artículo 87 LFT: pago antes del 20 de diciembre, mínimo 15 días de salario y parte proporcional para quienes no cumplieron el año.",
+      "tokens_contexto": 1682,
+      "tokens_prompt": 2128,
+      "latencias_ms": {
+        "recuperacion": 4175,
+        "generacion": 4143,
+        "total": 8318
+      },
+      "consulta_reescrita": "¿En qué momento debe pagarse la prestación anual denominada aguinaldo al trabajador?"
+    },
+    {
+      "id": "q07",
+      "pregunta": "Entré a trabajar en julio, ¿me toca aguinaldo completo?",
+      "categoria": "aguinaldo",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "87"
+      ],
+      "recuperados": [
+        [
+          "87"
+        ],
+        [
+          "280"
+        ],
+        [
+          "291-F"
+        ],
+        [
+          "784"
+        ],
+        [
+          "804"
+        ],
+        [
+          "291-C"
+        ],
+        [
+          "37"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Si entraste en julio del mismo año y para el 20 de diciembre no has cumplido un año, te corresponderá la parte proporcional del aguinaldo; por ejemplo, si trabajaste de julio a diciembre (6 meses) correspondería 15 días × 6/12 = 7.5 días; si entraste en julio del año anterior y para el 20 de diciembre ya cumpliste un año, te corresponderá el aguinaldo completo de 15 días (Art. 87, LFT).",
+      "respuesta_modelo": "Si entraste en julio del mismo año y para el 20 de diciembre no has cumplido un año, te corresponderá la parte proporcional del aguinaldo; por ejemplo, si trabajaste de julio a diciembre (6 meses) correspondería 15 días × 6/12 = 7.5 días; si entraste en julio del año anterior y para el 20 de diciembre ya cumpliste un año, te corresponderá el aguinaldo completo de 15 días (Art. 87, LFT).",
+      "citas": [
+        "87"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta refleja exactamente lo dispuesto en el artículo 87 LFT: derecho a 15 días si se cumplió el año y parte proporcional según tiempo trabajado (ej. 15×6/12=7.5) si no se cumplió el año.",
+      "tokens_contexto": 2018,
+      "tokens_prompt": 2468,
+      "latencias_ms": {
+        "recuperacion": 4090,
+        "generacion": 8857,
+        "total": 12947
+      },
+      "consulta_reescrita": "¿Corresponde pago íntegro de gratificación anual (aguinaldo) al trabajador que inició relación laboral en julio?"
+    },
+    {
+      "id": "q08",
+      "pregunta": "¿Cuántas horas puede durar como máximo mi jornada de día?",
+      "categoria": "jornada",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "61",
+        "59"
+      ],
+      "recuperados": [
+        [
+          "59"
+        ],
+        [
+          "61"
+        ],
+        [
+          "66"
+        ],
+        [
+          "177"
+        ],
+        [
+          "60"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "La jornada diurna puede durar como máximo ocho horas diarias (Art. 61, LFT).",
+      "respuesta_modelo": "La jornada diurna puede durar como máximo ocho horas diarias (Art. 61, LFT).",
+      "citas": [
+        "61"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta coincide exactamente con el Art. 61 del CONTEXTO que establece ocho horas como duración de la jornada diurna.",
+      "tokens_contexto": 480,
+      "tokens_prompt": 928,
+      "latencias_ms": {
+        "recuperacion": 3909,
+        "generacion": 2646,
+        "total": 6555
+      },
+      "consulta_reescrita": "¿Cuál es la duración máxima permitida de la jornada diurna de trabajo según la legislación laboral aplicable?"
+    },
+    {
+      "id": "q09",
+      "pregunta": "¿Qué diferencia hay entre jornada diurna, nocturna y mixta?",
+      "categoria": "jornada",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "60"
+      ],
+      "recuperados": [
+        [
+          "60"
+        ],
+        [
+          "61"
+        ],
+        [
+          "225"
+        ],
+        [
+          "333"
+        ],
+        [
+          "252"
+        ],
+        [
+          "58"
+        ],
+        [
+          "59"
+        ],
+        [
+          "62"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Jornada diurna: comprende el periodo entre las seis y las veinte horas; jornada nocturna: comprende el periodo entre las veinte y las seis horas; jornada mixta: comprende períodos de las jornadas diurna y nocturna siempre que el periodo nocturno sea menor de tres horas y media; si comprende tres horas y media o más se reputará jornada nocturna (Art. 60, LFT).\n\nLa duración diaria es de ocho horas para la jornada diurna, siete horas para la nocturna y siete horas y media para la mixta (Art. 61, LFT).",
+      "respuesta_modelo": "Jornada diurna: comprende el periodo entre las seis y las veinte horas; jornada nocturna: comprende el periodo entre las veinte y las seis horas; jornada mixta: comprende períodos de las jornadas diurna y nocturna siempre que el periodo nocturno sea menor de tres horas y media; si comprende tres horas y media o más se reputará jornada nocturna (Art. 60, LFT).\n\nLa duración diaria es de ocho horas para la jornada diurna, siete horas para la nocturna y siete horas y media para la mixta (Art. 61, LFT).",
+      "citas": [
+        "60",
+        "61"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta reproduce exactamente las definiciones del Art. 60 y las duraciones del Art. 61 de la LFT, sin añadir ni omitir información relevante.",
+      "tokens_contexto": 839,
+      "tokens_prompt": 1289,
+      "latencias_ms": {
+        "recuperacion": 4466,
+        "generacion": 6091,
+        "total": 10557
+      },
+      "consulta_reescrita": "¿Cuál es la distinción legal entre jornada diurna, jornada nocturna y jornada mixta conforme a la clasificación de la jornada laboral?"
+    },
+    {
+      "id": "q10",
+      "pregunta": "¿Cuánto me deben pagar por las horas extra?",
+      "categoria": "jornada",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "66",
+        "68"
+      ],
+      "recuperados": [
+        [
+          "230"
+        ],
+        [
+          "178"
+        ],
+        [
+          "66"
+        ],
+        [
+          "68"
+        ],
+        [
+          "291-F"
+        ],
+        [
+          "73"
+        ],
+        [
+          "75"
+        ],
+        [
+          "291-C"
+        ]
+      ],
+      "retrieval": {
+        "rank": 3,
+        "hit@1": 0.0,
+        "hit@5": 1.0,
+        "rr": 0.3333333333333333,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Puedo dar varias respuestas según su situación (a quién aplica cada artículo).\n\n- Jornada extraordinaria ordinaria: se paga con un cien por ciento más del salario (es decir, el doble por hora) cuando se prolonga la jornada por circunstancias extraordinarias; el trabajo extraordinario no excederá de doce horas en una semana y podrá distribuirse hasta cuatro horas diarias en un máximo de cuatro días en ese periodo (Art. 66, LFT).  \n- Si la prolongación excede los límites del artículo 66 (más allá de las doce horas semanales permitidas), la empleadora debe pagar un doscientos por ciento más del salario por esas horas (es decir, triple por hora) y la suma de jornada ordinaria y extraordinaria no podrá ser mayor a doce horas diarias (Art. 68, LFT).  \n- Menores de 18 años: está prohibido emplearlos en horas extraordinarias; si se viola, las horas extraordinarias se pagarán con un doscientos por ciento más del salario (Art. 178, LFT).  \n- Tripulaciones aeronáuticas: por cada hora extra se percibe un ciento por ciento más del salario correspondiente; el tiempo excedente ya calculado y pagado no será objeto de nuevo pago (Art. 230, LFT).  \n- Trabajo en plataformas digitales: el pago se fija por tarea e incluirá el proporcional de horas extras; no procede pago adicional por ese concepto (Art. 291-F, LFT).  \n- Si las horas extra se prestan en día de descanso obligatorio, además aplican los pagos por trabajar en dicho día conforme a los artículos sobre días de descanso (Art. 73, LFT) (Art. 75, LFT).",
+      "respuesta_modelo": "Puedo dar varias respuestas según su situación (a quién aplica cada artículo).\n\n- Jornada extraordinaria ordinaria: se paga con un cien por ciento más del salario (es decir, el doble por hora) cuando se prolonga la jornada por circunstancias extraordinarias; el trabajo extraordinario no excederá de doce horas en una semana y podrá distribuirse hasta cuatro horas diarias en un máximo de cuatro días en ese periodo (Art. 66, LFT).  \n- Si la prolongación excede los límites del artículo 66 (más allá de las doce horas semanales permitidas), la empleadora debe pagar un doscientos por ciento más del salario por esas horas (es decir, triple por hora) y la suma de jornada ordinaria y extraordinaria no podrá ser mayor a doce horas diarias (Art. 68, LFT).  \n- Menores de 18 años: está prohibido emplearlos en horas extraordinarias; si se viola, las horas extraordinarias se pagarán con un doscientos por ciento más del salario (Art. 178, LFT).  \n- Tripulaciones aeronáuticas: por cada hora extra se percibe un ciento por ciento más del salario correspondiente; el tiempo excedente ya calculado y pagado no será objeto de nuevo pago (Art. 230, LFT).  \n- Trabajo en plataformas digitales: el pago se fija por tarea e incluirá el proporcional de horas extras; no procede pago adicional por ese concepto (Art. 291-F, LFT).  \n- Si las horas extra se prestan en día de descanso obligatorio, además aplican los pagos por trabajar en dicho día conforme a los artículos sobre días de descanso (Art. 73, LFT) (Art. 75, LFT).",
+      "citas": [
+        "66",
+        "68",
+        "178",
+        "230",
+        "291-F",
+        "73",
+        "75"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta enumera correctamente, según los artículos recuperados, los porcentajes y excepciones aplicables (Art.66, 68, 178, 230, 291-F, 73 y 75) y distingue los distintos supuestos relevantes.",
+      "tokens_contexto": 1428,
+      "tokens_prompt": 1872,
+      "latencias_ms": {
+        "recuperacion": 4417,
+        "generacion": 9234,
+        "total": 13651
+      },
+      "consulta_reescrita": "¿Cuál es la remuneración aplicable por las horas extraordinarias laboradas y su calculo conforme a la normativa laboral?"
+    },
+    {
+      "id": "q11",
+      "pregunta": "¿Cuántas horas extra me pueden pedir a la semana?",
+      "categoria": "jornada",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "66",
+        "68"
+      ],
+      "recuperados": [
+        [
+          "68"
+        ],
+        [
+          "66"
+        ],
+        [
+          "333"
+        ],
+        [
+          "59"
+        ],
+        [
+          "177"
+        ],
+        [
+          "58"
+        ],
+        [
+          "60"
+        ],
+        [
+          "61"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Dos interpretaciones relevantes:\n\n- Para la persona trabajadora en general: el trabajo extraordinario no podrá exceder de doce horas en una semana; además, esas doce horas pueden distribuirse en hasta cuatro horas diarias, en un máximo de cuatro días en ese periodo (Art. 66, LFT). Si la prolongación supera lo establecido en el artículo 66, esa prolongación no podrá ser mayor de cuatro horas a la semana; y la suma de jornadas ordinaria y extraordinaria no podrá ser mayor a doce horas diarias (Art. 68, LFT).\n\n- Para personas trabajadoras del hogar que residan en el domicilio, los periodos en que no disponen libremente de su tiempo y cuando se excedan las horas legales deberán considerarse como horas extras y se aplican las disposiciones de los artículos 58 a 68, por lo que se atenderán los límites y distribución señalados en el Art. 66 y las restricciones del Art. 68 (Art. 333, LFT) (Art. 66, LFT) (Art. 68, LFT).",
+      "respuesta_modelo": "Dos interpretaciones relevantes:\n\n- Para la persona trabajadora en general: el trabajo extraordinario no podrá exceder de doce horas en una semana; además, esas doce horas pueden distribuirse en hasta cuatro horas diarias, en un máximo de cuatro días en ese periodo (Art. 66, LFT). Si la prolongación supera lo establecido en el artículo 66, esa prolongación no podrá ser mayor de cuatro horas a la semana; y la suma de jornadas ordinaria y extraordinaria no podrá ser mayor a doce horas diarias (Art. 68, LFT).\n\n- Para personas trabajadoras del hogar que residan en el domicilio, los periodos en que no disponen libremente de su tiempo y cuando se excedan las horas legales deberán considerarse como horas extras y se aplican las disposiciones de los artículos 58 a 68, por lo que se atenderán los límites y distribución señalados en el Art. 66 y las restricciones del Art. 68 (Art. 333, LFT) (Art. 66, LFT) (Art. 68, LFT).",
+      "citas": [
+        "66",
+        "68",
+        "333"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta indica correctamente el límite general de 12 horas extra por semana (Art.66), su distribución y la precisión adicional del Art.68, así como la mención aplicable a trabajadoras del hogar (Art.333).",
+      "tokens_contexto": 942,
+      "tokens_prompt": 1388,
+      "latencias_ms": {
+        "recuperacion": 4086,
+        "generacion": 9508,
+        "total": 13594
+      },
+      "consulta_reescrita": "¿Cuál es la jornada extraordinaria máxima semanal que puede exigírsele al trabajador y sus límites en materia de horas extraordinarias?"
+    },
+    {
+      "id": "q12",
+      "pregunta": "¿Tengo derecho a un descanso para comer durante la jornada?",
+      "categoria": "jornada",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "63",
+        "64"
+      ],
+      "recuperados": [
+        [
+          "63"
+        ],
+        [
+          "336"
+        ],
+        [
+          "333"
+        ],
+        [
+          "64"
+        ],
+        [
+          "423"
+        ],
+        [
+          "74"
+        ],
+        [
+          "58"
+        ],
+        [
+          "59"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Sí. Durante la jornada continua se concederá al trabajador un descanso de media hora, por lo menos. (Art. 63, LFT)\n\nEl reglamento interior debe fijar el tiempo destinado para las comidas y los períodos obligatorios de reposo durante la jornada. (Art. 423, LFT)\n\nSi el trabajador no puede salir del lugar donde presta sus servicios durante las horas de reposo o de comidas, ese tiempo se computará como tiempo efectivo de la jornada. (Art. 64, LFT)\n\nPara las personas trabajadoras del hogar hay reglas particulares: deben tener un descanso mínimo diario nocturno de nueve horas consecutivas y un descanso mínimo de tres horas entre las actividades matutinas y vespertinas; además la jornada diurna no puede exceder de ocho horas. (Art. 333, LFT)",
+      "respuesta_modelo": "Sí. Durante la jornada continua se concederá al trabajador un descanso de media hora, por lo menos. (Art. 63, LFT)\n\nEl reglamento interior debe fijar el tiempo destinado para las comidas y los períodos obligatorios de reposo durante la jornada. (Art. 423, LFT)\n\nSi el trabajador no puede salir del lugar donde presta sus servicios durante las horas de reposo o de comidas, ese tiempo se computará como tiempo efectivo de la jornada. (Art. 64, LFT)\n\nPara las personas trabajadoras del hogar hay reglas particulares: deben tener un descanso mínimo diario nocturno de nueve horas consecutivas y un descanso mínimo de tres horas entre las actividades matutinas y vespertinas; además la jornada diurna no puede exceder de ocho horas. (Art. 333, LFT)",
+      "citas": [
+        "63",
+        "423",
+        "64",
+        "333"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta cita correctamente el derecho a medio hora de descanso en jornada continua (Art.63) y las reglas sobre cómputo del tiempo y reglas específicas para trabajadoras del hogar (Arts.64,333) y el reglamento (Art.423), todos presentes en el contexto.",
+      "tokens_contexto": 1360,
+      "tokens_prompt": 1808,
+      "latencias_ms": {
+        "recuperacion": 4625,
+        "generacion": 7343,
+        "total": 11968
+      },
+      "consulta_reescrita": "¿Corresponde al trabajador disfrutar de un periodo de descanso destinado a la ingestión de alimentos dentro de la jornada laboral?"
+    },
+    {
+      "id": "q13",
+      "pregunta": "¿Cuántos días de descanso a la semana me corresponden?",
+      "categoria": "descanso",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "69"
+      ],
+      "recuperados": [
+        [
+          "336"
+        ],
+        [
+          "71"
+        ],
+        [
+          "74"
+        ],
+        [
+          "69"
+        ],
+        [
+          "78"
+        ],
+        [
+          "76"
+        ]
+      ],
+      "retrieval": {
+        "rank": 4,
+        "hit@1": 0.0,
+        "hit@5": 1.0,
+        "rr": 0.25,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Si eres persona trabajadora del hogar tienes derecho a un descanso semanal de día y medio ininterrumpido, preferiblemente en sábado y domingo; mediante acuerdo se pueden acumular los medios días en periodos de dos semanas, pero debe disfrutarse un día completo de descanso en cada semana (Art. 336, LFT).  \nEn general, por cada seis días de trabajo se deberá otorgar por lo menos un día de descanso con goce de salario íntegro (Art. 69, LFT).  \nAdemás, en los reglamentos se procurará que el día de descanso semanal sea el domingo y quien labore en domingo tiene derecho a una prima adicional mínima del 25% sobre el salario de los días ordinarios (Art. 71, LFT).",
+      "respuesta_modelo": "Si eres persona trabajadora del hogar tienes derecho a un descanso semanal de día y medio ininterrumpido, preferiblemente en sábado y domingo; mediante acuerdo se pueden acumular los medios días en periodos de dos semanas, pero debe disfrutarse un día completo de descanso en cada semana (Art. 336, LFT).  \nEn general, por cada seis días de trabajo se deberá otorgar por lo menos un día de descanso con goce de salario íntegro (Art. 69, LFT).  \nAdemás, en los reglamentos se procurará que el día de descanso semanal sea el domingo y quien labore en domingo tiene derecho a una prima adicional mínima del 25% sobre el salario de los días ordinarios (Art. 71, LFT).",
+      "citas": [
+        "336",
+        "69",
+        "71"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta cita correctamente el descanso general de un día por cada seis de trabajo (Art.69) y las reglas específicas para trabajadoras del hogar y domingo según los artículos proporcionados (Arts.336 y 71).",
+      "tokens_contexto": 835,
+      "tokens_prompt": 1283,
+      "latencias_ms": {
+        "recuperacion": 3803,
+        "generacion": 4753,
+        "total": 8556
+      },
+      "consulta_reescrita": "¿Cuál es la duración y periodicidad del descanso semanal a que tiene derecho el trabajador bajo la relación laboral?"
+    },
+    {
+      "id": "q14",
+      "pregunta": "Trabajo los domingos, ¿me deben pagar algo extra?",
+      "categoria": "descanso",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "71",
+        "73"
+      ],
+      "recuperados": [
+        [
+          "71"
+        ],
+        [
+          "178"
+        ],
+        [
+          "72"
+        ],
+        [
+          "73"
+        ],
+        [
+          "291-F"
+        ],
+        [
+          "75"
+        ],
+        [
+          "291-C"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Hay dos reglas que pueden aplicar:\n\n- Como regla general, quien labore en domingo tiene derecho a una prima adicional de, por lo menos, el veinticinco por ciento sobre el salario de los días ordinarios de trabajo (Art. 71, LFT).\n\n- Si se obliga al trabajador a prestar servicios en su día de descanso, el patrón deberá pagarle, además del salario que corresponda por el descanso, un salario doble por el servicio prestado (Art. 73, LFT) (Art. 75, LFT).\n\nNota sobre menores: está prohibido que menores de 18 años trabajen en domingos; en caso de violación se pagarán las horas con un 200% más y el salario de los días domingos conforme a los artículos aplicables (Art. 178, LFT).",
+      "respuesta_modelo": "Hay dos reglas que pueden aplicar:\n\n- Como regla general, quien labore en domingo tiene derecho a una prima adicional de, por lo menos, el veinticinco por ciento sobre el salario de los días ordinarios de trabajo (Art. 71, LFT).\n\n- Si se obliga al trabajador a prestar servicios en su día de descanso, el patrón deberá pagarle, además del salario que corresponda por el descanso, un salario doble por el servicio prestado (Art. 73, LFT) (Art. 75, LFT).\n\nNota sobre menores: está prohibido que menores de 18 años trabajen en domingos; en caso de violación se pagarán las horas con un 200% más y el salario de los días domingos conforme a los artículos aplicables (Art. 178, LFT).",
+      "citas": [
+        "71",
+        "73",
+        "75",
+        "178"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta cita correctamente el derecho a una prima mínima del 25% (art.71) y la obligación de pagar salario doble si se obliga a trabajar en día de descanso (arts.73 y 75), además de la nota sobre menores (art.178), todo respaldado por el contexto proporcionado.",
+      "tokens_contexto": 1273,
+      "tokens_prompt": 1719,
+      "latencias_ms": {
+        "recuperacion": 4016,
+        "generacion": 9404,
+        "total": 13420
+      },
+      "consulta_reescrita": "¿Corresponde remuneración adicional por la prestación de servicios en día domingo o en día de descanso obligatorio?"
+    },
+    {
+      "id": "q15",
+      "pregunta": "¿Cuáles son los días festivos obligatorios?",
+      "categoria": "descanso",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "74"
+      ],
+      "recuperados": [
+        [
+          "715"
+        ],
+        [
+          "74"
+        ],
+        [
+          "178"
+        ],
+        [
+          "336"
+        ],
+        [
+          "71"
+        ],
+        [
+          "714"
+        ],
+        [
+          "73"
+        ],
+        [
+          "75"
+        ]
+      ],
+      "retrieval": {
+        "rank": 2,
+        "hit@1": 0.0,
+        "hit@5": 1.0,
+        "rr": 0.5,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Son días de descanso obligatorio: 1o. de enero; el primer lunes de febrero en conmemoración del 5 de febrero; el tercer lunes de marzo en conmemoración del 21 de marzo; el 1o. de mayo; el 16 de septiembre; el tercer lunes de noviembre en conmemoración del 20 de noviembre; el 1o. de octubre de cada seis años, cuando corresponda a la transmisión del Poder Ejecutivo Federal; el 25 de diciembre; y el que determinen las leyes federales y locales electorales, en el caso de elecciones ordinarias, para efectuar la jornada electoral (Art. 74, LFT).",
+      "respuesta_modelo": "Son días de descanso obligatorio: 1o. de enero; el primer lunes de febrero en conmemoración del 5 de febrero; el tercer lunes de marzo en conmemoración del 21 de marzo; el 1o. de mayo; el 16 de septiembre; el tercer lunes de noviembre en conmemoración del 20 de noviembre; el 1o. de octubre de cada seis años, cuando corresponda a la transmisión del Poder Ejecutivo Federal; el 25 de diciembre; y el que determinen las leyes federales y locales electorales, en el caso de elecciones ordinarias, para efectuar la jornada electoral (Art. 74, LFT).",
+      "citas": [
+        "74"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta reproduce exactamente los días de descanso obligatorio establecidos en el Art. 74 de la LFT presentes en el contexto y en la referencia, por lo que es fiel y completa.",
+      "tokens_contexto": 1118,
+      "tokens_prompt": 1563,
+      "latencias_ms": {
+        "recuperacion": 4365,
+        "generacion": 6716,
+        "total": 11081
+      },
+      "consulta_reescrita": "¿Cuáles son las fechas de descanso obligatorio con goce íntegro de salario establecidas como días festivos en la legislación laboral?"
+    },
+    {
+      "id": "q16",
+      "pregunta": "Si trabajo el 1 de enero, ¿cuánto me tienen que pagar?",
+      "categoria": "descanso",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "75",
+        "74"
+      ],
+      "recuperados": [
+        [
+          "570"
+        ],
+        [
+          "87"
+        ],
+        [
+          "89"
+        ],
+        [
+          "132"
+        ],
+        [
+          "50"
+        ],
+        [
+          "84"
+        ],
+        [
+          "110"
+        ],
+        [
+          "97"
+        ]
+      ],
+      "retrieval": {
+        "rank": null,
+        "hit@1": 0.0,
+        "hit@5": 0.0,
+        "rr": 0.0,
+        "recall@5": 0.0,
+        "hit@ctx": 0.0,
+        "recall@ctx": 0.0
+      },
+      "respuesta": "No encontré esto en la LFT.",
+      "respuesta_modelo": "No encontré esto en la LFT.",
+      "citas": [],
+      "citas_invalidas": [],
+      "abstencion": true,
+      "cita_valida_modelo": null,
+      "cita_esperada": false,
+      "fidelidad": null,
+      "correccion": 1,
+      "justificacion": "Se abstuvo.",
+      "tokens_contexto": 3009,
+      "tokens_prompt": 3459,
+      "latencias_ms": {
+        "recuperacion": 4437,
+        "generacion": 2999,
+        "total": 7436
+      },
+      "consulta_reescrita": "¿Cuál es la remuneración que corresponde por labor prestada el día primero de enero considerando remuneración ordinaria, recargo por día de descanso obligatorio y demás prestaciones legales aplicables?"
+    },
+    {
+      "id": "q17",
+      "pregunta": "¿Por qué razones me pueden despedir justificadamente?",
+      "categoria": "despido",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "47"
+      ],
+      "recuperados": [
+        [
+          "46"
+        ],
+        [
+          "185"
+        ],
+        [
+          "291-M"
+        ],
+        [
+          "932"
+        ],
+        [
+          "244"
+        ],
+        [
+          "47"
+        ],
+        [
+          "291-P"
+        ],
+        [
+          "243"
+        ]
+      ],
+      "retrieval": {
+        "rank": null,
+        "hit@1": 0.0,
+        "hit@5": 0.0,
+        "rr": 0.0,
+        "recall@5": 0.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "La Ley prevé un conjunto de causas por las cuales el patrón puede rescindir la relación de trabajo sin responsabilidad, entre ellas el engaño con certificados falsos, faltas de probidad u honradez o actos de violencia, alteración de la disciplina por agresiones entre compañeros, actos graves fuera del servicio contra el patrón, perjuicios materiales intencionales o por negligencia grave, comprometer la seguridad por imprudencia, actos de hostigamiento o acoso sexual, revelar secretos de la empresa, más de tres faltas en 30 días, desobediencia sin causa justificada, negarse a medidas preventivas, concurrir en estado de embriaguez o bajo drogas (salvo prescripción), y la sentencia ejecutoriada que impida el cumplimiento de la relación; estas causas están detalladas en el artículo 47. (Art. 47, LFT)\n\nAdemás, para las personas que prestan servicio mediante plataformas digitales hay causas adicionales como presentar documentación falsa, comprometer la seguridad o privacidad de usuarios por imprudencia, incurrir en faltas de probidad, violencia, amenazas, hostigamiento o acoso sexual y el incumplimiento reiterado de tareas aceptadas; y algunas de estas causas pueden surtir efectos inmediatos o requieren preaviso según el caso. (Art. 291-M, LFT)\n\nPara trabajadores de confianza el patrón puede rescindir si existe motivo razonable de pérdida de la confianza, y las tripulaciones aeronáuticas tienen causas especiales de terminación como embriaguez antes o durante el vuelo, uso de narcóticos, violaciones legales en importación/exportación, negativa sin causa justificada a ejecutar vuelos de auxilio o a recibir adiestramiento indispensable, actos u omisiones que pongan en peligro la seguridad, entre otras; además la suspensión transitoria de licencias o documentos imputable al tripulante es causa especial sin responsabilidad para el patrón. (Art. 185, LFT) (Art. 244, LFT) (Art. 243, LFT)",
+      "respuesta_modelo": "La Ley prevé un conjunto de causas por las cuales el patrón puede rescindir la relación de trabajo sin responsabilidad, entre ellas el engaño con certificados falsos, faltas de probidad u honradez o actos de violencia, alteración de la disciplina por agresiones entre compañeros, actos graves fuera del servicio contra el patrón, perjuicios materiales intencionales o por negligencia grave, comprometer la seguridad por imprudencia, actos de hostigamiento o acoso sexual, revelar secretos de la empresa, más de tres faltas en 30 días, desobediencia sin causa justificada, negarse a medidas preventivas, concurrir en estado de embriaguez o bajo drogas (salvo prescripción), y la sentencia ejecutoriada que impida el cumplimiento de la relación; estas causas están detalladas en el artículo 47. (Art. 47, LFT)\n\nAdemás, para las personas que prestan servicio mediante plataformas digitales hay causas adicionales como presentar documentación falsa, comprometer la seguridad o privacidad de usuarios por imprudencia, incurrir en faltas de probidad, violencia, amenazas, hostigamiento o acoso sexual y el incumplimiento reiterado de tareas aceptadas; y algunas de estas causas pueden surtir efectos inmediatos o requieren preaviso según el caso. (Art. 291-M, LFT)\n\nPara trabajadores de confianza el patrón puede rescindir si existe motivo razonable de pérdida de la confianza, y las tripulaciones aeronáuticas tienen causas especiales de terminación como embriaguez antes o durante el vuelo, uso de narcóticos, violaciones legales en importación/exportación, negativa sin causa justificada a ejecutar vuelos de auxilio o a recibir adiestramiento indispensable, actos u omisiones que pongan en peligro la seguridad, entre otras; además la suspensión transitoria de licencias o documentos imputable al tripulante es causa especial sin responsabilidad para el patrón. (Art. 185, LFT) (Art. 244, LFT) (Art. 243, LFT)",
+      "citas": [
+        "47",
+        "291-M",
+        "185",
+        "244",
+        "243"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta resume fidedignamente y de forma completa las causas de rescisión justificadas según el artículo 47 y las disposiciones especiales aplicables (plataformas, confianza, tripulaciones) contenidas en el contexto.",
+      "tokens_contexto": 2479,
+      "tokens_prompt": 2925,
+      "latencias_ms": {
+        "recuperacion": 5029,
+        "generacion": 10649,
+        "total": 15678
+      },
+      "consulta_reescrita": "¿Cuáles son las causas legalmente justificadas de terminación de la relación de trabajo por parte del patrón, conforme a la ley?"
+    },
+    {
+      "id": "q18",
+      "pregunta": "¿Mi patrón me tiene que dar el aviso de despido por escrito?",
+      "categoria": "despido",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "47"
+      ],
+      "recuperados": [
+        [
+          "47"
+        ],
+        [
+          "712"
+        ],
+        [
+          "920"
+        ],
+        [
+          "784"
+        ],
+        [
+          "921"
+        ],
+        [
+          "43"
+        ],
+        [
+          "450"
+        ],
+        [
+          "390 Bis"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Sí. El patrón que despida a un trabajador deberá darle aviso escrito en el que refiera claramente la conducta o conductas que motivan la rescisión y la fecha o fechas en que se cometieron (Art. 47, LFT).  \nEse aviso debe entregarse personalmente al trabajador en el momento del despido o comunicarse al Tribunal competente dentro de los cinco días hábiles siguientes, proporcionando el último domicilio registrado del trabajador para su notificación personal (Art. 47, LFT).  \nLa presunción de separación no justificada surge si no hubo aviso personal o por conducto del Tribunal, salvo prueba en contrario; además la prescripción para ejercer las acciones derivadas del despido no empezará a correr hasta que el trabajador reciba personalmente el aviso (Art. 47, LFT).",
+      "respuesta_modelo": "Sí. El patrón que despida a un trabajador deberá darle aviso escrito en el que refiera claramente la conducta o conductas que motivan la rescisión y la fecha o fechas en que se cometieron (Art. 47, LFT).  \nEse aviso debe entregarse personalmente al trabajador en el momento del despido o comunicarse al Tribunal competente dentro de los cinco días hábiles siguientes, proporcionando el último domicilio registrado del trabajador para su notificación personal (Art. 47, LFT).  \nLa presunción de separación no justificada surge si no hubo aviso personal o por conducto del Tribunal, salvo prueba en contrario; además la prescripción para ejercer las acciones derivadas del despido no empezará a correr hasta que el trabajador reciba personalmente el aviso (Art. 47, LFT).",
+      "citas": [
+        "47"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta reproduce fielmente los requisitos y efectos del aviso de despido previstos en el artículo 47 de la LFT, incluyendo entrega personal o comunicación al Tribunal, plazo de cinco días hábiles y las consecuencias procesales señaladas.",
+      "tokens_contexto": 3954,
+      "tokens_prompt": 4405,
+      "latencias_ms": {
+        "recuperacion": 4942,
+        "generacion": 4820,
+        "total": 9762
+      },
+      "consulta_reescrita": "¿Tiene el empleador la obligación de notificar por escrito la terminación de la relación laboral al trabajador?"
+    },
+    {
+      "id": "q19",
+      "pregunta": "Me despidieron sin causa, ¿qué puedo exigir?",
+      "categoria": "despido",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "48",
+        "50"
+      ],
+      "recuperados": [
+        [
+          "48"
+        ],
+        [
+          "341"
+        ],
+        [
+          "51"
+        ],
+        [
+          "48 Bis"
+        ],
+        [
+          "46"
+        ],
+        [
+          "684-A"
+        ],
+        [
+          "1"
+        ],
+        [
+          "50"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 0.5,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Puedes solicitar que te reinstalen en el puesto o que te indemnicen con el importe de tres meses de salario; esto debe observar previamente el procedimiento de conciliación prejudicial previsto en la ley. (Art. 48, LFT) (Art. 684-A, LFT)\n\nSi en el juicio el patrón no comprueba la causa del despido, además tendrás derecho a que se te paguen los salarios vencidos desde la fecha del despido hasta por un período máximo de doce meses. (Art. 48, LFT) Si al término de ese plazo no ha concluido el procedimiento o no se ha cumplido la sentencia, se pagarán también los intereses que se generen sobre el importe de quince meses de salario, a razón del dos por ciento mensual capitalizable al momento del pago. (Art. 48, LFT)\n\nLas indemnizaciones se determinan según el tipo de relación: para contratos por tiempo determinado menor de un año, la mitad del tiempo de servicios en salarios; si excede de un año, seis meses de salario por el primer año y veinte días por cada año subsecuente; para tiempo indeterminado, veinte días de salario por año de servicio; además, cuando corresponda, la indemnización incluye tres meses de salario y el pago de salarios vencidos e intereses en los términos del artículo 48; para personas trabajadoras de plataformas digitales la indemnización será de tres meses de salario más veinte días por año y los salarios vencidos e intereses, según corresponda. (Art. 50, LFT)",
+      "respuesta_modelo": "Puedes solicitar que te reinstalen en el puesto o que te indemnicen con el importe de tres meses de salario; esto debe observar previamente el procedimiento de conciliación prejudicial previsto en la ley. (Art. 48, LFT) (Art. 684-A, LFT)\n\nSi en el juicio el patrón no comprueba la causa del despido, además tendrás derecho a que se te paguen los salarios vencidos desde la fecha del despido hasta por un período máximo de doce meses. (Art. 48, LFT) Si al término de ese plazo no ha concluido el procedimiento o no se ha cumplido la sentencia, se pagarán también los intereses que se generen sobre el importe de quince meses de salario, a razón del dos por ciento mensual capitalizable al momento del pago. (Art. 48, LFT)\n\nLas indemnizaciones se determinan según el tipo de relación: para contratos por tiempo determinado menor de un año, la mitad del tiempo de servicios en salarios; si excede de un año, seis meses de salario por el primer año y veinte días por cada año subsecuente; para tiempo indeterminado, veinte días de salario por año de servicio; además, cuando corresponda, la indemnización incluye tres meses de salario y el pago de salarios vencidos e intereses en los términos del artículo 48; para personas trabajadoras de plataformas digitales la indemnización será de tres meses de salario más veinte días por año y los salarios vencidos e intereses, según corresponda. (Art. 50, LFT)",
+      "citas": [
+        "48",
+        "684-A",
+        "50"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta reproduce fielmente los derechos y montos establecidos en los artículos 48 y 50 y menciona el procedimiento de conciliación y los salarios vencidos e intereses tal como lo disponen las referencias.",
+      "tokens_contexto": 2816,
+      "tokens_prompt": 3261,
+      "latencias_ms": {
+        "recuperacion": 5090,
+        "generacion": 10639,
+        "total": 15729
+      },
+      "consulta_reescrita": "Ante un despido injustificado, ¿qué prestaciones, indemnizaciones y derechos laborales puedo reclamar conforme a la normativa laboral vigente?"
+    },
+    {
+      "id": "q20",
+      "pregunta": "¿De cuánto es la indemnización de 20 días por año?",
+      "categoria": "despido",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "50"
+      ],
+      "recuperados": [
+        [
+          "50"
+        ],
+        [
+          "495"
+        ],
+        [
+          "439"
+        ],
+        [
+          "502"
+        ],
+        [
+          "87"
+        ],
+        [
+          "49"
+        ],
+        [
+          "48"
+        ],
+        [
+          "291-D"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "La indemnización es de veinte días de salario por cada uno de los años de servicios prestados. (Art. 50, LFT)\n\nEn el caso de personas trabajadoras en plataformas digitales, adicionalmente se pagarán veinte días de salario por cada uno de los años de servicios prestados, tomando en cuenta el tiempo efectivamente laborado. (Art. 50, LFT) (Art. 291-D, LFT)",
+      "respuesta_modelo": "La indemnización es de veinte días de salario por cada uno de los años de servicios prestados. (Art. 50, LFT)\n\nEn el caso de personas trabajadoras en plataformas digitales, adicionalmente se pagarán veinte días de salario por cada uno de los años de servicios prestados, tomando en cuenta el tiempo efectivamente laborado. (Art. 50, LFT) (Art. 291-D, LFT)",
+      "citas": [
+        "50",
+        "291-D"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta coincide exactamente con lo dispuesto en el artículo 50 (y la aclaración para plataformas conforme al art. 291-D) del CONTEXTO/REFERENCIA.",
+      "tokens_contexto": 2381,
+      "tokens_prompt": 2829,
+      "latencias_ms": {
+        "recuperacion": 4020,
+        "generacion": 7705,
+        "total": 11725
+      },
+      "consulta_reescrita": "¿Cuál es la cuantía de la indemnización equivalente a veinte días de salario por cada año de servicio?"
+    },
+    {
+      "id": "q21",
+      "pregunta": "¿En qué casos puedo renunciar y aun así cobrar indemnización?",
+      "categoria": "despido",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "51",
+        "52"
+      ],
+      "recuperados": [
+        [
+          "33"
+        ],
+        [
+          "49"
+        ],
+        [
+          "430"
+        ],
+        [
+          "503"
+        ],
+        [
+          "501"
+        ],
+        [
+          "50"
+        ],
+        [
+          "982"
+        ],
+        [
+          "427"
+        ]
+      ],
+      "retrieval": {
+        "rank": null,
+        "hit@1": 0.0,
+        "hit@5": 0.0,
+        "rr": 0.0,
+        "recall@5": 0.0,
+        "hit@ctx": 0.0,
+        "recall@ctx": 0.0
+      },
+      "respuesta": "No es válida la renuncia que haga el trabajador a los salarios devengados, a las indemnizaciones y demás prestaciones; esa renuncia es nula. (Art. 33, LFT)\n\nPor tanto, aun cuando se suscriba un documento en que se pretenda renunciar a indemnizaciones, dicha renuncia no surte efecto y el trabajador podrá reclamar las indemnizaciones que procedan conforme a la ley. (Art. 33, LFT) Las indemnizaciones que proceden están previstas en el artículo 50 y consisten, entre otras, en cantidades según si la relación fue por tiempo determinado o por tiempo indeterminado, además de tres meses de salario y demás conceptos señalados en ese artículo. (Art. 50, LFT)",
+      "respuesta_modelo": "No es válida la renuncia que haga el trabajador a los salarios devengados, a las indemnizaciones y demás prestaciones; esa renuncia es nula. (Art. 33, LFT)\n\nPor tanto, aun cuando se suscriba un documento en que se pretenda renunciar a indemnizaciones, dicha renuncia no surte efecto y el trabajador podrá reclamar las indemnizaciones que procedan conforme a la ley. (Art. 33, LFT) Las indemnizaciones que proceden están previstas en el artículo 50 y consisten, entre otras, en cantidades según si la relación fue por tiempo determinado o por tiempo indeterminado, además de tres meses de salario y demás conceptos señalados en ese artículo. (Art. 50, LFT)",
+      "citas": [
+        "33",
+        "50"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": false,
+      "fidelidad": 5,
+      "correccion": 3,
+      "justificacion": "La respuesta fielmente cita que la renuncia a indemnizaciones es nula (Art.33) y que existen indemnizaciones previstas (Art.50), pero no menciona las causas y el plazo para separarse con derecho a indemnización según los artículos 51 y 52, por lo que está incompleta.",
+      "tokens_contexto": 2743,
+      "tokens_prompt": 3191,
+      "latencias_ms": {
+        "recuperacion": 4517,
+        "generacion": 8774,
+        "total": 13291
+      },
+      "consulta_reescrita": "¿Qué supuestos configuran la terminación voluntaria del contrato por parte del trabajador que dan lugar al pago de indemnización por la parte patronal?"
+    },
+    {
+      "id": "q22",
+      "pregunta": "¿Qué es la prima de antigüedad y cuándo me la pagan?",
+      "categoria": "terminacion",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "162"
+      ],
+      "recuperados": [
+        [
+          "162"
+        ],
+        [
+          "436"
+        ],
+        [
+          "947"
+        ],
+        [
+          "991 Bis"
+        ],
+        [
+          "439"
+        ],
+        [
+          "485"
+        ],
+        [
+          "486"
+        ],
+        [
+          "501"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "La prima de antigüedad consiste en el importe de doce días de salario por cada año de servicios; para determinar el monto del salario, se estará a lo dispuesto en los artículos 485 y 486. (Art. 162, LFT) (Art. 485, LFT) (Art. 486, LFT)\n\nSe pagará a los trabajadores que se separen voluntariamente de su empleo siempre que hayan cumplido quince años de servicios por lo menos, a los que se separen por causa justificada y a los que sean separados de su empleo, independientemente de la justificación o injustificación del despido; en caso de muerte del trabajador, cualquiera que sea su antigüedad, la prima que corresponda se pagará a las personas mencionadas en el artículo 501. (Art. 162, LFT) (Art. 501, LFT)\n\nAdemás, la obligación de pagar la prima de antigüedad aparece también en supuestos de terminación colectiva y en procedimientos en que el patrón es condenado o deposita las indemnizaciones, según lo previsto en otros artículos. (Art. 436, LFT) (Art. 439, LFT) (Art. 947, LFT) (Art. 991 Bis, LFT)",
+      "respuesta_modelo": "La prima de antigüedad consiste en el importe de doce días de salario por cada año de servicios; para determinar el monto del salario, se estará a lo dispuesto en los artículos 485 y 486. (Art. 162, LFT) (Art. 485, LFT) (Art. 486, LFT)\n\nSe pagará a los trabajadores que se separen voluntariamente de su empleo siempre que hayan cumplido quince años de servicios por lo menos, a los que se separen por causa justificada y a los que sean separados de su empleo, independientemente de la justificación o injustificación del despido; en caso de muerte del trabajador, cualquiera que sea su antigüedad, la prima que corresponda se pagará a las personas mencionadas en el artículo 501. (Art. 162, LFT) (Art. 501, LFT)\n\nAdemás, la obligación de pagar la prima de antigüedad aparece también en supuestos de terminación colectiva y en procedimientos en que el patrón es condenado o deposita las indemnizaciones, según lo previsto en otros artículos. (Art. 436, LFT) (Art. 439, LFT) (Art. 947, LFT) (Art. 991 Bis, LFT)",
+      "citas": [
+        "162",
+        "485",
+        "486",
+        "501",
+        "436",
+        "439",
+        "947",
+        "991 Bis"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 4,
+      "justificacion": "La respuesta cita correctamente la definición, beneficiarios y supuestos de pago señalados en los artículos proporcionados, pero omite las reglas específicas sobre el momento de pago en retiros voluntarios (fracción IV a-c del Art.162).",
+      "tokens_contexto": 1714,
+      "tokens_prompt": 2163,
+      "latencias_ms": {
+        "recuperacion": 3678,
+        "generacion": 9960,
+        "total": 13638
+      },
+      "consulta_reescrita": "¿Qué constituye la prima de antigüedad y en qué circunstancias y momento corresponde su pago por la relación laboral?"
+    },
+    {
+      "id": "q23",
+      "pregunta": "¿Cuánto tiempo tengo para demandar si me despidieron?",
+      "categoria": "terminacion",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "518"
+      ],
+      "recuperados": [
+        [
+          "712"
+        ],
+        [
+          "873-A"
+        ],
+        [
+          "47"
+        ],
+        [
+          "517"
+        ],
+        [
+          "48"
+        ],
+        [
+          "739"
+        ],
+        [
+          "43"
+        ],
+        [
+          "684-A"
+        ]
+      ],
+      "retrieval": {
+        "rank": null,
+        "hit@1": 0.0,
+        "hit@5": 0.0,
+        "rr": 0.0,
+        "recall@5": 0.0,
+        "hit@ctx": 0.0,
+        "recall@ctx": 0.0
+      },
+      "respuesta": "No encontré esto en la LFT.",
+      "respuesta_modelo": "No encontré esto en la LFT.",
+      "citas": [],
+      "citas_invalidas": [],
+      "abstencion": true,
+      "cita_valida_modelo": null,
+      "cita_esperada": false,
+      "fidelidad": null,
+      "correccion": 1,
+      "justificacion": "Se abstuvo.",
+      "tokens_contexto": 3612,
+      "tokens_prompt": 4059,
+      "latencias_ms": {
+        "recuperacion": 6166,
+        "generacion": 5208,
+        "total": 11374
+      },
+      "consulta_reescrita": "¿Cuál es el plazo de prescripción o caducidad para interponer demanda laboral por despido ante la autoridad competente?"
+    },
+    {
+      "id": "q24",
+      "pregunta": "¿Cuánto puede durar el periodo de prueba?",
+      "categoria": "contratacion",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "39-A"
+      ],
+      "recuperados": [
+        [
+          "39-A"
+        ],
+        [
+          "39-D"
+        ],
+        [
+          "39-E"
+        ],
+        [
+          "39-C"
+        ],
+        [
+          "778"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "El periodo a prueba no podrá exceder de treinta días, salvo que podrá extenderse hasta ciento ochenta días cuando se trate de trabajadores para puestos de dirección, gerenciales, de dirección o administración, o para desempeñar labores técnicas o profesionales especializadas (Art. 39-A, LFT). Además, los periodos a prueba son improrrogables (Art. 39-D, LFT).",
+      "respuesta_modelo": "El periodo a prueba no podrá exceder de treinta días, salvo que podrá extenderse hasta ciento ochenta días cuando se trate de trabajadores para puestos de dirección, gerenciales, de dirección o administración, o para desempeñar labores técnicas o profesionales especializadas (Art. 39-A, LFT). Además, los periodos a prueba son improrrogables (Art. 39-D, LFT).",
+      "citas": [
+        "39-A",
+        "39-D"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta refleja exactamente los topes de 30 y 180 días y añade correctamente que tales periodos son improrrogables, conforme a los artículos citados.",
+      "tokens_contexto": 881,
+      "tokens_prompt": 1325,
+      "latencias_ms": {
+        "recuperacion": 4270,
+        "generacion": 5497,
+        "total": 9767
+      },
+      "consulta_reescrita": "¿Cuál es la duración máxima del periodo de prueba establecido para la relación de trabajo?"
+    },
+    {
+      "id": "q25",
+      "pregunta": "¿Mi contrato tiene que ser por escrito?",
+      "categoria": "contratacion",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "24",
+        "25",
+        "26"
+      ],
+      "recuperados": [
+        [
+          "390"
+        ],
+        [
+          "282"
+        ],
+        [
+          "14"
+        ],
+        [
+          "330-B"
+        ],
+        [
+          "24"
+        ],
+        [
+          "390 Bis"
+        ],
+        [
+          "25"
+        ]
+      ],
+      "retrieval": {
+        "rank": 5,
+        "hit@1": 0.0,
+        "hit@5": 1.0,
+        "rr": 0.2,
+        "recall@5": 0.3333333333333333,
+        "hit@ctx": 1.0,
+        "recall@ctx": 0.6666666666666666
+      },
+      "respuesta": "Depende del tipo de contrato al que te refieras. Para las relaciones individuales de trabajo, las condiciones deben constar por escrito cuando no existan contratos colectivos aplicables; se harán por lo menos dos ejemplares, uno para cada parte (Art. 24, LFT).  \n\nSi se trata de trabajo del campo, el contrato deberá fijarse por escrito y las personas trabajadoras del campo deberán contar con un ejemplar (Art. 282, LFT).  \n\nPara teletrabajo, las condiciones de trabajo se harán constar por escrito mediante un contrato y cada parte conservará un ejemplar (Art. 330-B, LFT). También la subcontratación de servicios u obras especializadas y el contrato colectivo inicial deben formalizarse por escrito (Art. 14, LFT) (Art. 390, LFT).",
+      "respuesta_modelo": "Depende del tipo de contrato al que te refieras. Para las relaciones individuales de trabajo, las condiciones deben constar por escrito cuando no existan contratos colectivos aplicables; se harán por lo menos dos ejemplares, uno para cada parte (Art. 24, LFT).  \n\nSi se trata de trabajo del campo, el contrato deberá fijarse por escrito y las personas trabajadoras del campo deberán contar con un ejemplar (Art. 282, LFT).  \n\nPara teletrabajo, las condiciones de trabajo se harán constar por escrito mediante un contrato y cada parte conservará un ejemplar (Art. 330-B, LFT). También la subcontratación de servicios u obras especializadas y el contrato colectivo inicial deben formalizarse por escrito (Art. 14, LFT) (Art. 390, LFT).",
+      "citas": [
+        "24",
+        "282",
+        "330-B",
+        "14",
+        "390"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta refleja correctamente y con respaldo en los artículos citados que en general las condiciones deben constar por escrito (Art. 24 y 25) y señala los supuestos específicos (campo, teletrabajo, subcontratación y contrato colectivo) conforme al contexto suministrado.",
+      "tokens_contexto": 2346,
+      "tokens_prompt": 2788,
+      "latencias_ms": {
+        "recuperacion": 5383,
+        "generacion": 5484,
+        "total": 10867
+      },
+      "consulta_reescrita": "¿Es exigible la formalización por escrito del contrato de trabajo o es válida la celebración verbal del vínculo laboral?"
+    },
+    {
+      "id": "q26",
+      "pregunta": "¿Puedo renunciar a mis derechos laborales si firmo un papel?",
+      "categoria": "contratacion",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "33"
+      ],
+      "recuperados": [
+        [
+          "48 Bis"
+        ],
+        [
+          "33"
+        ],
+        [
+          "5"
+        ],
+        [
+          "133"
+        ],
+        [
+          "4"
+        ],
+        [
+          "48"
+        ]
+      ],
+      "retrieval": {
+        "rank": 2,
+        "hit@1": 0.0,
+        "hit@5": 1.0,
+        "rr": 0.5,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "No. Es nula la renuncia que los trabajadores hagan de los salarios devengados, de las indemnizaciones y demás prestaciones derivadas del trabajo, cualquiera que sea la forma o denominación que se le dé (Art. 33, LFT).\n\nLa Ley también prohíbe la renuncia por parte del trabajador de cualquiera de los derechos consignados en las normas de trabajo (Art. 5, LFT).\n\nAdemás, todo convenio o liquidación para ser válido deberá hacerse por escrito y ser ratificado ante los Centros de Conciliación o el Tribunal, y no será aprobado si contiene renuncia de los derechos de los trabajadores (Art. 33, LFT).",
+      "respuesta_modelo": "No. Es nula la renuncia que los trabajadores hagan de los salarios devengados, de las indemnizaciones y demás prestaciones derivadas del trabajo, cualquiera que sea la forma o denominación que se le dé (Art. 33, LFT).\n\nLa Ley también prohíbe la renuncia por parte del trabajador de cualquiera de los derechos consignados en las normas de trabajo (Art. 5, LFT).\n\nAdemás, todo convenio o liquidación para ser válido deberá hacerse por escrito y ser ratificado ante los Centros de Conciliación o el Tribunal, y no será aprobado si contiene renuncia de los derechos de los trabajadores (Art. 33, LFT).",
+      "citas": [
+        "33",
+        "5"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta cita correctamente los artículos 33 y 5 y explica la nulidad de la renuncia y la necesidad de ratificación ante autoridades, conforme a la referencia proporcionada.",
+      "tokens_contexto": 3436,
+      "tokens_prompt": 3886,
+      "latencias_ms": {
+        "recuperacion": 5238,
+        "generacion": 4950,
+        "total": 10188
+      },
+      "consulta_reescrita": "¿Es válida una renuncia anticipada de derechos laborales mediante documento privado suscrito por el trabajador, y produce efectos liberatorios frente al patrón?"
+    },
+    {
+      "id": "q27",
+      "pregunta": "¿Cada cuánto me tienen que pagar el salario?",
+      "categoria": "salario",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "88"
+      ],
+      "recuperados": [
+        [
+          "88"
+        ],
+        [
+          "85"
+        ],
+        [
+          "83"
+        ],
+        [
+          "87"
+        ],
+        [
+          "54"
+        ],
+        [
+          "53"
+        ],
+        [
+          "162"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "El salario debe pagarse, como máximo, cada semana para las personas que desempeñan un trabajo material y cada quince días para los demás trabajadores (Art. 88, LFT).",
+      "respuesta_modelo": "El salario debe pagarse, como máximo, cada semana para las personas que desempeñan un trabajo material y cada quince días para los demás trabajadores (Art. 88, LFT).",
+      "citas": [
+        "88"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta reproduce textualmente lo dispuesto en el artículo 88 de la LFT: pago máximo semanal para trabajo material y cada quince días para los demás trabajadores.",
+      "tokens_contexto": 1473,
+      "tokens_prompt": 1918,
+      "latencias_ms": {
+        "recuperacion": 4566,
+        "generacion": 3496,
+        "total": 8062
+      },
+      "consulta_reescrita": "¿Con qué periodicidad debe efectuarse el pago del salario al trabajador conforme a la normativa laboral?"
+    },
+    {
+      "id": "q28",
+      "pregunta": "¿Me pueden descontar del sueldo por romper algo en el trabajo?",
+      "categoria": "salario",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "110"
+      ],
+      "recuperados": [
+        [
+          "110"
+        ],
+        [
+          "51"
+        ],
+        [
+          "992"
+        ],
+        [
+          "47"
+        ],
+        [
+          "513"
+        ],
+        [
+          "151"
+        ],
+        [
+          "103 Bis"
+        ],
+        [
+          "43"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Sí. Pueden descontarte cuando se trate de pérdidas, errores o averías ocasionadas en la empresa, siempre que el descuento se acuerde entre trabajador y patrón y la cantidad exigible no sea mayor del importe de los salarios de un mes y el descuento no pueda ser mayor del treinta por ciento del excedente del salario mínimo (Art. 110, LFT). Además, si la pérdida fue intencional o por negligencia grave, ello constituye causa de rescisión de la relación de trabajo sin responsabilidad para el patrón (Art. 47, LFT).",
+      "respuesta_modelo": "Sí. Pueden descontarte cuando se trate de pérdidas, errores o averías ocasionadas en la empresa, siempre que el descuento se acuerde entre trabajador y patrón y la cantidad exigible no sea mayor del importe de los salarios de un mes y el descuento no pueda ser mayor del treinta por ciento del excedente del salario mínimo (Art. 110, LFT). Además, si la pérdida fue intencional o por negligencia grave, ello constituye causa de rescisión de la relación de trabajo sin responsabilidad para el patrón (Art. 47, LFT).",
+      "citas": [
+        "110",
+        "47"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta reproduce fielmente los supuestos y límites del Art. 110 sobre descuentos y las causales de rescisión por perjuicios intencionales o por negligencia grave del Art. 47.",
+      "tokens_contexto": 4016,
+      "tokens_prompt": 4465,
+      "latencias_ms": {
+        "recuperacion": 5180,
+        "generacion": 4390,
+        "total": 9570
+      },
+      "consulta_reescrita": "¿El patrón puede efectuar descuentos en el salario del trabajador por daños ocasionados a bienes de la empresa, aplicando retenciones o compensaciones salariales?"
+    },
+    {
+      "id": "q29",
+      "pregunta": "¿Cuándo se paga el reparto de utilidades?",
+      "categoria": "ptu",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "122"
+      ],
+      "recuperados": [
+        [
+          "122"
+        ],
+        [
+          "123"
+        ],
+        [
+          "126"
+        ],
+        [
+          "127"
+        ],
+        [
+          "121"
+        ],
+        [
+          "125"
+        ],
+        [
+          "291"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "El reparto se efectuará dentro de los sesenta días siguientes a la fecha en que deba pagarse el impuesto anual; si la Secretaría de Hacienda y Crédito Público aumenta el monto de la utilidad gravable, el reparto adicional se hará dentro de los sesenta días siguientes a la notificación, salvo que el patrón impugne en cuyo caso se suspenderá hasta que la resolución quede firme, garantizándose el interés de los trabajadores. (Art. 122, LFT)\n\nEl importe de las utilidades no reclamadas en el año en que sean exigibles se agregará a la utilidad repartible del año siguiente. (Art. 122, LFT)",
+      "respuesta_modelo": "El reparto se efectuará dentro de los sesenta días siguientes a la fecha en que deba pagarse el impuesto anual; si la Secretaría de Hacienda y Crédito Público aumenta el monto de la utilidad gravable, el reparto adicional se hará dentro de los sesenta días siguientes a la notificación, salvo que el patrón impugne en cuyo caso se suspenderá hasta que la resolución quede firme, garantizándose el interés de los trabajadores. (Art. 122, LFT)\n\nEl importe de las utilidades no reclamadas en el año en que sean exigibles se agregará a la utilidad repartible del año siguiente. (Art. 122, LFT)",
+      "citas": [
+        "122"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta reproduce fielmente y de forma completa los plazos y supuestos establecidos en el artículo 122 de la LFT.",
+      "tokens_contexto": 2138,
+      "tokens_prompt": 2584,
+      "latencias_ms": {
+        "recuperacion": 4450,
+        "generacion": 11505,
+        "total": 15955
+      },
+      "consulta_reescrita": "¿Cuál es el plazo y momento de pago del reparto de utilidades a los trabajadores conforme a la normativa laboral aplicable?"
+    },
+    {
+      "id": "q30",
+      "pregunta": "¿Hay un tope para lo que me pueden dar de PTU?",
+      "categoria": "ptu",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "127"
+      ],
+      "recuperados": [
+        [
+          "513"
+        ],
+        [
+          "22"
+        ],
+        [
+          "117"
+        ],
+        [
+          "993"
+        ],
+        [
+          "153-K"
+        ],
+        [
+          "494"
+        ],
+        [
+          "492"
+        ],
+        [
+          "17"
+        ]
+      ],
+      "retrieval": {
+        "rank": null,
+        "hit@1": 0.0,
+        "hit@5": 0.0,
+        "rr": 0.0,
+        "recall@5": 0.0,
+        "hit@ctx": 0.0,
+        "recall@ctx": 0.0
+      },
+      "respuesta": "No encontré esto en la LFT.",
+      "respuesta_modelo": "No encontré esto en la LFT.",
+      "citas": [],
+      "citas_invalidas": [],
+      "abstencion": true,
+      "cita_valida_modelo": null,
+      "cita_esperada": false,
+      "fidelidad": null,
+      "correccion": 1,
+      "justificacion": "Se abstuvo.",
+      "tokens_contexto": 2294,
+      "tokens_prompt": 2741,
+      "latencias_ms": {
+        "recuperacion": 5438,
+        "generacion": 4260,
+        "total": 9698
+      },
+      "consulta_reescrita": "¿Existe límite máximo legal para la participación de los trabajadores en las utilidades de la empresa?"
+    },
+    {
+      "id": "q31",
+      "pregunta": "¿Cuántas semanas de incapacidad por maternidad me corresponden?",
+      "categoria": "maternidad",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "170"
+      ],
+      "recuperados": [
+        [
+          "170"
+        ],
+        [
+          "491"
+        ],
+        [
+          "495"
+        ],
+        [
+          "54"
+        ],
+        [
+          "336"
+        ],
+        [
+          "53"
+        ],
+        [
+          "162"
+        ],
+        [
+          "74"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Tienes derecho a seis semanas anteriores y seis posteriores al parto (12 semanas en total); a solicitud y con autorización médica y opinión del patrón, hasta cuatro de las seis semanas previas pueden transferirse a después del parto; si el hijo nace con discapacidad o requiere atención hospitalaria, el descanso podrá ser de hasta ocho semanas posteriores; y en caso de adopción, corresponderán seis semanas posteriores al día en que recibas al infante. (Art. 170, LFT)",
+      "respuesta_modelo": "Tienes derecho a seis semanas anteriores y seis posteriores al parto (12 semanas en total); a solicitud y con autorización médica y opinión del patrón, hasta cuatro de las seis semanas previas pueden transferirse a después del parto; si el hijo nace con discapacidad o requiere atención hospitalaria, el descanso podrá ser de hasta ocho semanas posteriores; y en caso de adopción, corresponderán seis semanas posteriores al día en que recibas al infante. (Art. 170, LFT)",
+      "citas": [
+        "170"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta reproduce fielmente y completamente lo dispuesto en el Art. 170 LFT: seis semanas antes y seis después (posible traslado de hasta cuatro semanas), hasta ocho semanas posteriores en caso de discapacidad o hospitalización y seis semanas en adopción.",
+      "tokens_contexto": 2220,
+      "tokens_prompt": 2668,
+      "latencias_ms": {
+        "recuperacion": 4635,
+        "generacion": 10265,
+        "total": 14900
+      },
+      "consulta_reescrita": "¿Cuál es la duración de la licencia por maternidad y el periodo de descanso por riesgo de trabajo o incapacidad temporal de la trabajadora?"
+    },
+    {
+      "id": "q32",
+      "pregunta": "¿Los papás tienen derecho a permiso cuando nace su hijo?",
+      "categoria": "maternidad",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "132"
+      ],
+      "recuperados": [
+        [
+          "132"
+        ],
+        [
+          "170"
+        ],
+        [
+          "22"
+        ],
+        [
+          "175 Bis"
+        ],
+        [
+          "170 Bis"
+        ],
+        [
+          "110"
+        ],
+        [
+          "97"
+        ],
+        [
+          "390 Bis"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Sí. Los hombres trabajadores tienen derecho a permiso de paternidad de cinco días laborables con goce de sueldo por el nacimiento de sus hijos y de igual manera en caso de la adopción de un infante. (Art. 132, LFT)",
+      "respuesta_modelo": "Sí. Los hombres trabajadores tienen derecho a permiso de paternidad de cinco días laborables con goce de sueldo por el nacimiento de sus hijos y de igual manera en caso de la adopción de un infante. (Art. 132, LFT)",
+      "citas": [
+        "132"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta coincide exactamente con lo dispuesto en el artículo 132, fracción XXVII Bis de la LFT respecto al permiso de paternidad de cinco días laborables con goce de sueldo por nacimiento o adopción.",
+      "tokens_contexto": 3817,
+      "tokens_prompt": 4264,
+      "latencias_ms": {
+        "recuperacion": 4400,
+        "generacion": 4003,
+        "total": 8403
+      },
+      "consulta_reescrita": "¿El trabajador varón tiene derecho a licencia por paternidad al nacimiento de su hijo?"
+    },
+    {
+      "id": "q33",
+      "pregunta": "Trabajo desde casa, ¿la empresa debe pagarme internet y luz?",
+      "categoria": "teletrabajo",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "330-E",
+        "330-F"
+      ],
+      "recuperados": [
+        [
+          "330-E"
+        ],
+        [
+          "330-F"
+        ],
+        [
+          "330-B"
+        ],
+        [
+          "330-C"
+        ],
+        [
+          "291-K"
+        ],
+        [
+          "25"
+        ],
+        [
+          "132"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Sí. El patrón debe asumir los costos derivados del teletrabajo, incluyendo el pago de servicios de telecomunicación y la parte proporcional de electricidad (Art. 330-E, LFT).\n\nAdemás, el contrato de teletrabajo debe contener la descripción y monto que el patrón pagará a la persona trabajadora por concepto de pago de servicios en el domicilio relacionados con el teletrabajo (Art. 330-B, LFT).\n\nLa persona trabajadora, por su parte, tiene la obligación de informar con oportunidad sobre los costos pactados para el uso de los servicios de telecomunicaciones y del consumo de electricidad derivados del teletrabajo (Art. 330-F, LFT).",
+      "respuesta_modelo": "Sí. El patrón debe asumir los costos derivados del teletrabajo, incluyendo el pago de servicios de telecomunicación y la parte proporcional de electricidad (Art. 330-E, LFT).\n\nAdemás, el contrato de teletrabajo debe contener la descripción y monto que el patrón pagará a la persona trabajadora por concepto de pago de servicios en el domicilio relacionados con el teletrabajo (Art. 330-B, LFT).\n\nLa persona trabajadora, por su parte, tiene la obligación de informar con oportunidad sobre los costos pactados para el uso de los servicios de telecomunicaciones y del consumo de electricidad derivados del teletrabajo (Art. 330-F, LFT).",
+      "citas": [
+        "330-E",
+        "330-B",
+        "330-F"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta está completamente respaldada por los artículos citados (330-E, 330-B y 330-F) y responde correctamente que el patrón debe asumir servicios de telecomunicación y la parte proporcional de electricidad, además de los requisitos contractuales y de información del trabajador.",
+      "tokens_contexto": 3052,
+      "tokens_prompt": 3499,
+      "latencias_ms": {
+        "recuperacion": 5497,
+        "generacion": 5552,
+        "total": 11049
+      },
+      "consulta_reescrita": "¿El patrón tiene la obligación de cubrir los gastos de servicios domésticos (energía eléctrica y acceso a internet) derivados del desempeño del trabajo a domicilio?"
+    },
+    {
+      "id": "q34",
+      "pregunta": "¿A partir de qué edad se puede trabajar legalmente?",
+      "categoria": "menores",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "22"
+      ],
+      "recuperados": [
+        [
+          "22 Bis"
+        ],
+        [
+          "22"
+        ],
+        [
+          "175"
+        ],
+        [
+          "988"
+        ],
+        [
+          "23"
+        ],
+        [
+          "176"
+        ],
+        [
+          "429"
+        ],
+        [
+          "995 Bis"
+        ]
+      ],
+      "retrieval": {
+        "rank": 2,
+        "hit@1": 0.0,
+        "hit@5": 1.0,
+        "rr": 0.5,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "En general, la ley permite trabajar a partir de los quince años (los mayores de quince años pueden prestar libremente sus servicios) (Art. 22, LFT).  \n\nSin embargo, está prohibido el trabajo de menores de quince años y no podrá utilizarse el trabajo de quienes tengan más de quince y menos de dieciocho años que no hayan terminado la educación básica obligatoria, salvo autorización de la autoridad laboral; además, los mayores de quince y menores de dieciséis necesitan autorización de sus padres o tutores (Art. 22 Bis, LFT) (Art. 22, LFT).",
+      "respuesta_modelo": "En general, la ley permite trabajar a partir de los quince años (los mayores de quince años pueden prestar libremente sus servicios) (Art. 22, LFT).  \n\nSin embargo, está prohibido el trabajo de menores de quince años y no podrá utilizarse el trabajo de quienes tengan más de quince y menos de dieciocho años que no hayan terminado la educación básica obligatoria, salvo autorización de la autoridad laboral; además, los mayores de quince y menores de dieciséis necesitan autorización de sus padres o tutores (Art. 22 Bis, LFT) (Art. 22, LFT).",
+      "citas": [
+        "22",
+        "22 Bis"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta indica correctamente que legalmente se puede trabajar a partir de los 15 años y añade las limitaciones y autorizaciones exigidas por los artículos citados (Arts. 22 y 22 Bis).",
+      "tokens_contexto": 1638,
+      "tokens_prompt": 2082,
+      "latencias_ms": {
+        "recuperacion": 4218,
+        "generacion": 4587,
+        "total": 8805
+      },
+      "consulta_reescrita": "¿Cuál es la edad mínima legal para prestar servicios remunerados conforme a la legislación laboral y sus figuras de trabajo infantil y protección al menor?"
+    },
+    {
+      "id": "q35",
+      "pregunta": "¿Qué se considera acoso u hostigamiento sexual en el trabajo?",
+      "categoria": "acoso",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "3 Bis"
+      ],
+      "recuperados": [
+        [
+          "3 Bis"
+        ],
+        [
+          "685 Ter"
+        ],
+        [
+          "378"
+        ],
+        [
+          "291-R"
+        ],
+        [
+          "994"
+        ],
+        [
+          "61"
+        ],
+        [
+          "69"
+        ],
+        [
+          "76"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Hostigamiento: el ejercicio del poder en una relación de subordinación real de la víctima frente al agresor en el ámbito laboral, que se expresa en conductas verbales, físicas o ambas (Art. 3 Bis, LFT).\n\nAcoso sexual: una forma de violencia en la que, aunque no exista subordinación, hay un ejercicio abusivo del poder que conlleva a un estado de indefensión y de riesgo para la víctima, independientemente de que se realice en uno o varios eventos (Art. 3 Bis, LFT).",
+      "respuesta_modelo": "Hostigamiento: el ejercicio del poder en una relación de subordinación real de la víctima frente al agresor en el ámbito laboral, que se expresa en conductas verbales, físicas o ambas (Art. 3 Bis, LFT).\n\nAcoso sexual: una forma de violencia en la que, aunque no exista subordinación, hay un ejercicio abusivo del poder que conlleva a un estado de indefensión y de riesgo para la víctima, independientemente de que se realice en uno o varios eventos (Art. 3 Bis, LFT).",
+      "citas": [
+        "3 Bis"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta reproduce fielmente las definiciones de hostigamiento y acoso sexual contenidas en el artículo 3 Bis de la LFT, sin añadir ni omitir elementos relevantes.",
+      "tokens_contexto": 1889,
+      "tokens_prompt": 2337,
+      "latencias_ms": {
+        "recuperacion": 4822,
+        "generacion": 3180,
+        "total": 8002
+      },
+      "consulta_reescrita": "¿Qué conductas constituyen acoso y hostigamiento sexual en el ámbito laboral y cómo se definen legalmente como conducta de trato sexual no consentido?"
+    },
+    {
+      "id": "q36",
+      "pregunta": "¿Está permitida la subcontratación de personal?",
+      "categoria": "subcontratacion",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "12",
+        "13"
+      ],
+      "recuperados": [
+        [
+          "12"
+        ],
+        [
+          "1004-C"
+        ],
+        [
+          "13"
+        ],
+        [
+          "15"
+        ],
+        [
+          "14"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "No; la subcontratación de personal está prohibida. (Art. 12, LFT)\n\nSin embargo, se permite la subcontratación de servicios especializados o de ejecución de obras especializadas que no formen parte del objeto social ni de la actividad económica preponderante de la beneficiaria, siempre que el contratista esté registrado en el padrón público. (Art. 13, LFT)\n\nEl registro de las personas que presten servicios de subcontratación debe obtenerse ante la Secretaría del Trabajo y Previsión Social y acreditarse que están al corriente de obligaciones fiscales y de seguridad social; dicho registro deberá renovarse cada tres años. (Art. 15, LFT)",
+      "respuesta_modelo": "No; la subcontratación de personal está prohibida. (Art. 12, LFT)\n\nSin embargo, se permite la subcontratación de servicios especializados o de ejecución de obras especializadas que no formen parte del objeto social ni de la actividad económica preponderante de la beneficiaria, siempre que el contratista esté registrado en el padrón público. (Art. 13, LFT)\n\nEl registro de las personas que presten servicios de subcontratación debe obtenerse ante la Secretaría del Trabajo y Previsión Social y acreditarse que están al corriente de obligaciones fiscales y de seguridad social; dicho registro deberá renovarse cada tres años. (Art. 15, LFT)",
+      "citas": [
+        "12",
+        "13",
+        "15"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta reproduce correctamente la prohibición de la subcontratación de personal (art.12), la excepción para servicios/obras especializados con registro (art.13) y los requisitos y renovación trienal del registro (art.15), todos respaldados por el CONTEXTO y la REFERENCIA.",
+      "tokens_contexto": 1056,
+      "tokens_prompt": 1501,
+      "latencias_ms": {
+        "recuperacion": 4688,
+        "generacion": 5392,
+        "total": 10080
+      },
+      "consulta_reescrita": "¿Es lícita la subcontratación o prestación de servicios a través de empresas contratistas o agencias de colocación de personal?"
+    },
+    {
+      "id": "q37",
+      "pregunta": "¿Cuánto ISR me deben retener de mi aguinaldo?",
+      "categoria": "fuera_de_alcance",
+      "debe_responder": false,
+      "articulos_esperados": [],
+      "recuperados": [
+        [
+          "280"
+        ],
+        [
+          "87"
+        ],
+        [
+          "291-F"
+        ],
+        [
+          "288"
+        ],
+        [
+          "804"
+        ],
+        [
+          "291-C"
+        ]
+      ],
+      "retrieval": {
+        "rank": null,
+        "hit@1": 0.0,
+        "hit@5": 0.0,
+        "rr": 0.0,
+        "recall@5": 0.0,
+        "hit@ctx": 0.0,
+        "recall@ctx": 0.0
+      },
+      "respuesta": "No encontré esto en la LFT.",
+      "respuesta_modelo": "No encontré esto en la LFT.",
+      "citas": [],
+      "citas_invalidas": [],
+      "abstencion": true,
+      "cita_valida_modelo": null,
+      "cita_esperada": false,
+      "fidelidad": null,
+      "correccion": null,
+      "justificacion": "",
+      "tokens_contexto": 1434,
+      "tokens_prompt": 1882,
+      "latencias_ms": {
+        "recuperacion": 4798,
+        "generacion": 1279,
+        "total": 6077
+      },
+      "consulta_reescrita": "¿Cuál es la base gravable y la tasa aplicable para la retención del impuesto sobre la renta sobre la prestación anual denominada aguinaldo?"
+    },
+    {
+      "id": "q38",
+      "pregunta": "¿Cómo tramito mi número de seguridad social?",
+      "categoria": "fuera_de_alcance",
+      "debe_responder": false,
+      "articulos_esperados": [],
+      "recuperados": [
+        [
+          "899-C"
+        ],
+        [
+          "899-D"
+        ],
+        [
+          "15"
+        ],
+        [
+          "899-A"
+        ],
+        [
+          "899-B"
+        ],
+        [
+          "784"
+        ]
+      ],
+      "retrieval": {
+        "rank": null,
+        "hit@1": 0.0,
+        "hit@5": 0.0,
+        "rr": 0.0,
+        "recall@5": 0.0,
+        "hit@ctx": 0.0,
+        "recall@ctx": 0.0
+      },
+      "respuesta": "No encontré esto en la LFT.",
+      "respuesta_modelo": "No encontré esto en la LFT.",
+      "citas": [],
+      "citas_invalidas": [],
+      "abstencion": true,
+      "cita_valida_modelo": null,
+      "cita_esperada": false,
+      "fidelidad": null,
+      "correccion": null,
+      "justificacion": "",
+      "tokens_contexto": 2131,
+      "tokens_prompt": 2573,
+      "latencias_ms": {
+        "recuperacion": 4516,
+        "generacion": 1635,
+        "total": 6151
+      },
+      "consulta_reescrita": "¿Cuál es el procedimiento para la incorporación y obtención del Registro en el Instituto Mexicano del Seguro Social como trabajador?"
+    },
+    {
+      "id": "q39",
+      "pregunta": "¿Cuánto cuesta un abogado laboral en Guadalajara?",
+      "categoria": "fuera_de_alcance",
+      "debe_responder": false,
+      "articulos_esperados": [],
+      "recuperados": [
+        [
+          "48 Bis"
+        ],
+        [
+          "48"
+        ],
+        [
+          "685 Bis"
+        ],
+        [
+          "28"
+        ],
+        [
+          "590-D"
+        ],
+        [
+          "684-A"
+        ],
+        [
+          "25"
+        ]
+      ],
+      "retrieval": {
+        "rank": null,
+        "hit@1": 0.0,
+        "hit@5": 0.0,
+        "rr": 0.0,
+        "recall@5": 0.0,
+        "hit@ctx": 0.0,
+        "recall@ctx": 0.0
+      },
+      "respuesta": "No encontré esto en la LFT.",
+      "respuesta_modelo": "No encontré esto en la LFT.",
+      "citas": [],
+      "citas_invalidas": [],
+      "abstencion": true,
+      "cita_valida_modelo": null,
+      "cita_esperada": false,
+      "fidelidad": null,
+      "correccion": null,
+      "justificacion": "",
+      "tokens_contexto": 3654,
+      "tokens_prompt": 4104,
+      "latencias_ms": {
+        "recuperacion": 5142,
+        "generacion": 1106,
+        "total": 6248
+      },
+      "consulta_reescrita": "¿Cuál es el monto de los honorarios profesionales por la prestación de servicios jurídicos laborales en Guadalajara?"
+    },
+    {
+      "id": "q40",
+      "pregunta": "¿Cuál es el salario mínimo de este año?",
+      "categoria": "fuera_de_alcance",
+      "debe_responder": false,
+      "articulos_esperados": [],
+      "recuperados": [
+        [
+          "90"
+        ],
+        [
+          "570"
+        ],
+        [
+          "94"
+        ],
+        [
+          "85"
+        ],
+        [
+          "92"
+        ]
+      ],
+      "retrieval": {
+        "rank": null,
+        "hit@1": 0.0,
+        "hit@5": 0.0,
+        "rr": 0.0,
+        "recall@5": 0.0,
+        "hit@ctx": 0.0,
+        "recall@ctx": 0.0
+      },
+      "respuesta": "No encontré esto en la LFT.",
+      "respuesta_modelo": "No encontré esto en la LFT.",
+      "citas": [],
+      "citas_invalidas": [],
+      "abstencion": true,
+      "cita_valida_modelo": null,
+      "cita_esperada": false,
+      "fidelidad": null,
+      "correccion": null,
+      "justificacion": "",
+      "tokens_contexto": 917,
+      "tokens_prompt": 1360,
+      "latencias_ms": {
+        "recuperacion": 3728,
+        "generacion": 1714,
+        "total": 5442
+      },
+      "consulta_reescrita": "¿Cuál es la cuantía del salario mínimo vigente para el periodo anual aplicable?"
+    }
+  ]
+}

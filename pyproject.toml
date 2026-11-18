@@ -1,0 +1,48 @@
+[project]
+name = "asistente-lft"
+version = "0.1.0"
+description = "RAG sobre la Ley Federal del Trabajo de México con citas y evaluación"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    # LLM (generación, reescritura de consulta, juez de evaluación)
+    "openai>=1.50",
+    # API y demo
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "streamlit>=1.38",
+    "httpx>=0.27",
+    # Base de datos
+    "psycopg[binary]>=3.2",
+    "pgvector>=0.3",
+    # Embeddings y reranker (bge-m3, bge-reranker-v2-m3)
+    "sentence-transformers>=3.0",
+    "numpy>=1.26",
+    # Ingesta del PDF
+    "pymupdf>=1.24",
+    # Configuración
+    "pydantic>=2.7",
+    "pydantic-settings>=2.4",
+    "python-dotenv>=1.0",
+    # Chunking fijo por tokens y utilidades
+    "tiktoken>=0.7",
+    "tqdm>=4.66",
+    "rapidfuzz>=3.14.6",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

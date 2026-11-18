@@ -1,0 +1,40 @@
+{"id": "q01", "pregunta": "¿Cuántos días de vacaciones me tocan en mi primer año de trabajo?", "articulos_esperados": ["76"], "categoria": "vacaciones", "debe_responder": true}
+{"id": "q02", "pregunta": "Llevo 3 años en la empresa, ¿cuántos días de vacaciones tengo?", "articulos_esperados": ["76"], "categoria": "vacaciones", "debe_responder": true}
+{"id": "q03", "pregunta": "¿Me pueden pagar las vacaciones en lugar de dármelas?", "articulos_esperados": ["79"], "categoria": "vacaciones", "debe_responder": true}
+{"id": "q04", "pregunta": "¿Qué es la prima vacacional y de cuánto es?", "articulos_esperados": ["80"], "categoria": "vacaciones", "debe_responder": true}
+{"id": "q05", "pregunta": "¿Puedo tomar mis vacaciones en días separados o tienen que ser seguidos?", "articulos_esperados": ["78"], "categoria": "vacaciones", "debe_responder": true}
+{"id": "q06", "pregunta": "¿Cuándo me tienen que pagar el aguinaldo?", "articulos_esperados": ["87"], "categoria": "aguinaldo", "debe_responder": true}
+{"id": "q07", "pregunta": "Entré a trabajar en julio, ¿me toca aguinaldo completo?", "articulos_esperados": ["87"], "categoria": "aguinaldo", "debe_responder": true}
+{"id": "q08", "pregunta": "¿Cuántas horas puede durar como máximo mi jornada de día?", "articulos_esperados": ["61", "59"], "categoria": "jornada", "debe_responder": true}
+{"id": "q09", "pregunta": "¿Qué diferencia hay entre jornada diurna, nocturna y mixta?", "articulos_esperados": ["60"], "categoria": "jornada", "debe_responder": true}
+{"id": "q10", "pregunta": "¿Cuánto me deben pagar por las horas extra?", "articulos_esperados": ["66", "68"], "categoria": "jornada", "debe_responder": true}
+{"id": "q11", "pregunta": "¿Cuántas horas extra me pueden pedir a la semana?", "articulos_esperados": ["66", "68"], "categoria": "jornada", "debe_responder": true}
+{"id": "q12", "pregunta": "¿Tengo derecho a un descanso para comer durante la jornada?", "articulos_esperados": ["63", "64"], "categoria": "jornada", "debe_responder": true}
+{"id": "q13", "pregunta": "¿Cuántos días de descanso a la semana me corresponden?", "articulos_esperados": ["69"], "categoria": "descanso", "debe_responder": true}
+{"id": "q14", "pregunta": "Trabajo los domingos, ¿me deben pagar algo extra?", "articulos_esperados": ["71", "73"], "categoria": "descanso", "debe_responder": true}
+{"id": "q15", "pregunta": "¿Cuáles son los días festivos obligatorios?", "articulos_esperados": ["74"], "categoria": "descanso", "debe_responder": true}
+{"id": "q16", "pregunta": "Si trabajo el 1 de enero, ¿cuánto me tienen que pagar?", "articulos_esperados": ["75", "74"], "categoria": "descanso", "debe_responder": true}
+{"id": "q17", "pregunta": "¿Por qué razones me pueden despedir justificadamente?", "articulos_esperados": ["47"], "categoria": "despido", "debe_responder": true}
+{"id": "q18", "pregunta": "¿Mi patrón me tiene que dar el aviso de despido por escrito?", "articulos_esperados": ["47"], "categoria": "despido", "debe_responder": true}
+{"id": "q19", "pregunta": "Me despidieron sin causa, ¿qué puedo exigir?", "articulos_esperados": ["48", "50"], "categoria": "despido", "debe_responder": true}
+{"id": "q20", "pregunta": "¿De cuánto es la indemnización de 20 días por año?", "articulos_esperados": ["50"], "categoria": "despido", "debe_responder": true}
+{"id": "q21", "pregunta": "¿En qué casos puedo renunciar y aun así cobrar indemnización?", "articulos_esperados": ["51", "52"], "categoria": "despido", "debe_responder": true}
+{"id": "q22", "pregunta": "¿Qué es la prima de antigüedad y cuándo me la pagan?", "articulos_esperados": ["162"], "categoria": "terminacion", "debe_responder": true}
+{"id": "q23", "pregunta": "¿Cuánto tiempo tengo para demandar si me despidieron?", "articulos_esperados": ["518"], "categoria": "terminacion", "debe_responder": true}
+{"id": "q24", "pregunta": "¿Cuánto puede durar el periodo de prueba?", "articulos_esperados": ["39-A"], "categoria": "contratacion", "debe_responder": true}
+{"id": "q25", "pregunta": "¿Mi contrato tiene que ser por escrito?", "articulos_esperados": ["24", "25", "26"], "categoria": "contratacion", "debe_responder": true}
+{"id": "q26", "pregunta": "¿Puedo renunciar a mis derechos laborales si firmo un papel?", "articulos_esperados": ["33"], "categoria": "contratacion", "debe_responder": true}
+{"id": "q27", "pregunta": "¿Cada cuánto me tienen que pagar el salario?", "articulos_esperados": ["88"], "categoria": "salario", "debe_responder": true}
+{"id": "q28", "pregunta": "¿Me pueden descontar del sueldo por romper algo en el trabajo?", "articulos_esperados": ["110"], "categoria": "salario", "debe_responder": true}
+{"id": "q29", "pregunta": "¿Cuándo se paga el reparto de utilidades?", "articulos_esperados": ["122"], "categoria": "ptu", "debe_responder": true}
+{"id": "q30", "pregunta": "¿Hay un tope para lo que me pueden dar de PTU?", "articulos_esperados": ["127"], "categoria": "ptu", "debe_responder": true}
+{"id": "q31", "pregunta": "¿Cuántas semanas de incapacidad por maternidad me corresponden?", "articulos_esperados": ["170"], "categoria": "maternidad", "debe_responder": true}
+{"id": "q32", "pregunta": "¿Los papás tienen derecho a permiso cuando nace su hijo?", "articulos_esperados": ["132"], "categoria": "maternidad", "debe_responder": true}
+{"id": "q33", "pregunta": "Trabajo desde casa, ¿la empresa debe pagarme internet y luz?", "articulos_esperados": ["330-E", "330-F"], "categoria": "teletrabajo", "debe_responder": true}
+{"id": "q34", "pregunta": "¿A partir de qué edad se puede trabajar legalmente?", "articulos_esperados": ["22"], "categoria": "menores", "debe_responder": true}
+{"id": "q35", "pregunta": "¿Qué se considera acoso u hostigamiento sexual en el trabajo?", "articulos_esperados": ["3 Bis"], "categoria": "acoso", "debe_responder": true}
+{"id": "q36", "pregunta": "¿Está permitida la subcontratación de personal?", "articulos_esperados": ["12", "13"], "categoria": "subcontratacion", "debe_responder": true}
+{"id": "q37", "pregunta": "¿Cuánto ISR me deben retener de mi aguinaldo?", "articulos_esperados": [], "categoria": "fuera_de_alcance", "debe_responder": false}
+{"id": "q38", "pregunta": "¿Cómo tramito mi número de seguridad social?", "articulos_esperados": [], "categoria": "fuera_de_alcance", "debe_responder": false}
+{"id": "q39", "pregunta": "¿Cuánto cuesta un abogado laboral en Guadalajara?", "articulos_esperados": [], "categoria": "fuera_de_alcance", "debe_responder": false}
+{"id": "q40", "pregunta": "¿Cuál es el salario mínimo de este año?", "articulos_esperados": [], "categoria": "fuera_de_alcance", "debe_responder": false}

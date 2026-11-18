@@ -1,0 +1,16 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+data/raw/
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+.mypy_cache/
+
+# Archivos de trabajo con asistentes de IA: se quedan en local, no se publican
+CLAUDE.md
+.claude/
+docs/PROMPTS.md
+docs/design/PROMPT.md
+web/AGENTS.md

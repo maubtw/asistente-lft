@@ -1,0 +1,712 @@
+{
+  "config": "full_rerank_max",
+  "config_flags": "by_article+hybrid+rerank+refs+rewrite+rerank_max",
+  "parcial": [
+    "q08",
+    "q13",
+    "q14",
+    "q16",
+    "q25",
+    "q30",
+    "q32",
+    "q37",
+    "q38",
+    "q39",
+    "q40"
+  ],
+  "fecha": "2026-11-18T09:56:54",
+  "fecha_reforma_ley": "2026-05-14",
+  "settings": {
+    "llm_model": "gpt-5-mini",
+    "judge_model": "gpt-5-mini",
+    "llm_reasoning_effort": "low",
+    "rewrite_model": "",
+    "rewrite_reasoning_effort": "minimal",
+    "rerank_query": "max",
+    "embedding_model": "BAAI/bge-m3",
+    "reranker_model": "BAAI/bge-reranker-v2-m3",
+    "embedding_batch_size": 16,
+    "max_chunk_tokens": 800,
+    "chunking_strategy": "by_article",
+    "use_hybrid": true,
+    "use_reranker": true,
+    "use_reference_expansion": true,
+    "use_query_rewrite": true,
+    "top_k": 5,
+    "retrieve_k": 20,
+    "rrf_k": 60,
+    "lexical_ranking": "idf",
+    "max_reference_articles": 3,
+    "hnsw_ef_search": 100
+  },
+  "juez": "gpt-5-mini",
+  "metricas": {
+    "n_preguntas": 11,
+    "hit@1": 0.5714,
+    "hit@5": 1.0,
+    "mrr": 0.7071,
+    "recall@5": 0.8333,
+    "hit@ctx": 1.0,
+    "recall@ctx": 0.9524,
+    "abstencion_correcta": 1.0,
+    "falsa_abstencion": 0.0,
+    "cita_valida": 1.0,
+    "cita_esperada": 1.0,
+    "fidelidad": 5,
+    "correccion": 5,
+    "latencia_ms": 17621.8182,
+    "tokens_contexto": 1972.0909
+  },
+  "preguntas": [
+    {
+      "id": "q08",
+      "pregunta": "¿Cuántas horas puede durar como máximo mi jornada de día?",
+      "categoria": "jornada",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "61",
+        "59"
+      ],
+      "recuperados": [
+        [
+          "59"
+        ],
+        [
+          "61"
+        ],
+        [
+          "60"
+        ],
+        [
+          "66"
+        ],
+        [
+          "177"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "La jornada diurna puede durar como máximo ocho horas. (Art. 61, LFT)",
+      "respuesta_modelo": "La jornada diurna puede durar como máximo ocho horas. (Art. 61, LFT)",
+      "citas": [
+        "61"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta coincide exactamente con el Art. 61 LFT que establece que la jornada diurna es de ocho horas.",
+      "tokens_contexto": 480,
+      "tokens_prompt": 1046,
+      "latencias_ms": {
+        "recuperacion": 20442,
+        "generacion": 3816,
+        "total": 24258
+      },
+      "consulta_reescrita": "¿Cuál es la duración máxima de la jornada diurna laboral ordinaria permitida por la ley?"
+    },
+    {
+      "id": "q13",
+      "pregunta": "¿Cuántos días de descanso a la semana me corresponden?",
+      "categoria": "descanso",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "69"
+      ],
+      "recuperados": [
+        [
+          "336"
+        ],
+        [
+          "71"
+        ],
+        [
+          "74"
+        ],
+        [
+          "69"
+        ],
+        [
+          "70"
+        ]
+      ],
+      "retrieval": {
+        "rank": 4,
+        "hit@1": 0.0,
+        "hit@5": 1.0,
+        "rr": 0.25,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Regla general: tienes derecho, por lo menos, a un día de descanso por cada seis días de trabajo, con goce de salario íntegro (Art. 69, LFT).\n\nSi eres persona trabajadora del hogar: tienes derecho a un descanso semanal de día y medio ininterrumpido (preferiblemente sábado y domingo); puede acumularse medios días en periodos de dos semanas, pero debe disfrutarse un día completo de descanso en cada semana (Art. 336, LFT).\n\nAdemás, los días de descanso preferentemente serán el domingo y quien labore en domingo tiene derecho a una prima mínima del 25% sobre el salario de los días ordinarios de trabajo (Art. 71, LFT).",
+      "respuesta_modelo": "Regla general: tienes derecho, por lo menos, a un día de descanso por cada seis días de trabajo, con goce de salario íntegro (Art. 69, LFT).\n\nSi eres persona trabajadora del hogar: tienes derecho a un descanso semanal de día y medio ininterrumpido (preferiblemente sábado y domingo); puede acumularse medios días en periodos de dos semanas, pero debe disfrutarse un día completo de descanso en cada semana (Art. 336, LFT).\n\nAdemás, los días de descanso preferentemente serán el domingo y quien labore en domingo tiene derecho a una prima mínima del 25% sobre el salario de los días ordinarios de trabajo (Art. 71, LFT).",
+      "citas": [
+        "69",
+        "336",
+        "71"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta cita correctamente el derecho general (Art. 69) y añade información aplicable a personas trabajadoras del hogar (Art. 336) y sobre domingos/prima (Art. 71), todo respaldado por el contexto proporcionado.",
+      "tokens_contexto": 689,
+      "tokens_prompt": 1255,
+      "latencias_ms": {
+        "recuperacion": 8285,
+        "generacion": 5197,
+        "total": 13482
+      },
+      "consulta_reescrita": "¿Cuál es la jornada laboral semanal y los días de descanso obligatorios que corresponden al trabajador under la Ley Federal del Trabajo?"
+    },
+    {
+      "id": "q14",
+      "pregunta": "Trabajo los domingos, ¿me deben pagar algo extra?",
+      "categoria": "descanso",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "71",
+        "73"
+      ],
+      "recuperados": [
+        [
+          "71"
+        ],
+        [
+          "178"
+        ],
+        [
+          "72"
+        ],
+        [
+          "73"
+        ],
+        [
+          "336"
+        ],
+        [
+          "75"
+        ],
+        [
+          "74"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Sí. Las personas que laboren en domingo tendrán derecho a una prima adicional de, por lo menos, el veinticinco por ciento sobre el salario de los días ordinarios de trabajo. (Art. 71, LFT)\n\nAdemás, los trabajadores no están obligados a prestar servicios en sus días de descanso; si se quebranta esa disposición, el patrón pagará, independientemente del salario que corresponda por el descanso, un salario doble por el servicio prestado. (Art. 73, LFT)\n\nSi eres menor de 18 años, está prohibido que te hagan trabajar en domingo; en caso de violación, las horas y los salarios se pagarán conforme a las reglas previstas (incluye pagos con recargos). (Art. 178, LFT) Si eres persona trabajadora del hogar, tienes un régimen específico de descanso pero, en caso de que se laboren esos días, se aplicarán las reglas de esta Ley. (Art. 336, LFT)",
+      "respuesta_modelo": "Sí. Las personas que laboren en domingo tendrán derecho a una prima adicional de, por lo menos, el veinticinco por ciento sobre el salario de los días ordinarios de trabajo. (Art. 71, LFT)\n\nAdemás, los trabajadores no están obligados a prestar servicios en sus días de descanso; si se quebranta esa disposición, el patrón pagará, independientemente del salario que corresponda por el descanso, un salario doble por el servicio prestado. (Art. 73, LFT)\n\nSi eres menor de 18 años, está prohibido que te hagan trabajar en domingo; en caso de violación, las horas y los salarios se pagarán conforme a las reglas previstas (incluye pagos con recargos). (Art. 178, LFT) Si eres persona trabajadora del hogar, tienes un régimen específico de descanso pero, en caso de que se laboren esos días, se aplicarán las reglas de esta Ley. (Art. 336, LFT)",
+      "citas": [
+        "71",
+        "73",
+        "178",
+        "336"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta cita correctamente el Art.71 (prima mínima del 25% por trabajar en domingo) y el Art.73 (si se quebranta el día de descanso, pago de salario doble además del salario correspondiente), y agrega referencias aplicables a menores y trabajadores del hogar presentes en el contexto.",
+      "tokens_contexto": 1038,
+      "tokens_prompt": 1602,
+      "latencias_ms": {
+        "recuperacion": 6620,
+        "generacion": 9599,
+        "total": 16219
+      },
+      "consulta_reescrita": "¿Corresponde remuneración adicional por trabajo dominical, conforme a la retribución por jornada en día de descanso obligatorio o pago por día dominical?"
+    },
+    {
+      "id": "q16",
+      "pregunta": "Si trabajo el 1 de enero, ¿cuánto me tienen que pagar?",
+      "categoria": "descanso",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "75",
+        "74"
+      ],
+      "recuperados": [
+        [
+          "71"
+        ],
+        [
+          "75"
+        ],
+        [
+          "1000"
+        ],
+        [
+          "272"
+        ],
+        [
+          "570"
+        ],
+        [
+          "74"
+        ]
+      ],
+      "retrieval": {
+        "rank": 2,
+        "hit@1": 0.0,
+        "hit@5": 1.0,
+        "rr": 0.5,
+        "recall@5": 0.5,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "El 1 de enero es día de descanso obligatorio. (Art. 74, LFT)\n\nSi trabajas ese día tienes derecho, además del salario que corresponda por el descanso obligatorio, a que te paguen un salario doble por el servicio prestado. (Art. 75, LFT)",
+      "respuesta_modelo": "El 1 de enero es día de descanso obligatorio. (Art. 74, LFT)\n\nSi trabajas ese día tienes derecho, además del salario que corresponda por el descanso obligatorio, a que te paguen un salario doble por el servicio prestado. (Art. 75, LFT)",
+      "citas": [
+        "74",
+        "75"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta afirma correctamente que el 1 de enero es día de descanso obligatorio (Art.74) y que si se trabaja ese día se debe pagar, además del salario del descanso, un salario doble por el servicio prestado (Art.75).",
+      "tokens_contexto": 1069,
+      "tokens_prompt": 1637,
+      "latencias_ms": {
+        "recuperacion": 5324,
+        "generacion": 6369,
+        "total": 11693
+      },
+      "consulta_reescrita": "¿Cuál es la remuneración que corresponde por laborar en jornada en día de descanso obligatorio y condiciones para pago de prima dominical o recargo?"
+    },
+    {
+      "id": "q25",
+      "pregunta": "¿Mi contrato tiene que ser por escrito?",
+      "categoria": "contratacion",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "24",
+        "25",
+        "26"
+      ],
+      "recuperados": [
+        [
+          "390"
+        ],
+        [
+          "282"
+        ],
+        [
+          "14"
+        ],
+        [
+          "330-B"
+        ],
+        [
+          "24"
+        ],
+        [
+          "390 Bis"
+        ],
+        [
+          "25"
+        ]
+      ],
+      "retrieval": {
+        "rank": 5,
+        "hit@1": 0.0,
+        "hit@5": 1.0,
+        "rr": 0.2,
+        "recall@5": 0.3333333333333333,
+        "hit@ctx": 1.0,
+        "recall@ctx": 0.6666666666666666
+      },
+      "respuesta": "En general, sí: las condiciones de trabajo deben constar por escrito cuando no existan contratos colectivos aplicables, y se harán por lo menos dos ejemplares, quedando uno en poder de cada parte (Art. 24, LFT).  \n\nSi existe un contrato colectivo aplicable, dicho contrato colectivo debe celebrarse por escrito y se hará por triplicado, entregando un ejemplar a cada parte y depositando otro ante el Centro Federal de Conciliación y Registro Laboral (Art. 390, LFT).  \nAdemás, hay regímenes especiales que también exigen contrato por escrito cuando proceden: el trabajo del campo requiere contrato por escrito para las personas trabajadoras del campo (Art. 282, LFT), el teletrabajo exige que las condiciones se consten por escrito en contrato (Art. 330-B, LFT) y la subcontratación de servicios especializados o de ejecución de obras especializadas debe formalizarse mediante contrato por escrito (Art. 14, LFT).  \n\nEl escrito de las condiciones de trabajo deberá contener, entre otros datos, nombre y domicilio de las partes, tipo de contrato, servicio a prestarse, lugar de trabajo, duración de la jornada, forma y monto del salario, día y lugar de pago y demás condiciones pactadas (Art. 25, LFT).",
+      "respuesta_modelo": "En general, sí: las condiciones de trabajo deben constar por escrito cuando no existan contratos colectivos aplicables, y se harán por lo menos dos ejemplares, quedando uno en poder de cada parte (Art. 24, LFT).  \n\nSi existe un contrato colectivo aplicable, dicho contrato colectivo debe celebrarse por escrito y se hará por triplicado, entregando un ejemplar a cada parte y depositando otro ante el Centro Federal de Conciliación y Registro Laboral (Art. 390, LFT).  \nAdemás, hay regímenes especiales que también exigen contrato por escrito cuando proceden: el trabajo del campo requiere contrato por escrito para las personas trabajadoras del campo (Art. 282, LFT), el teletrabajo exige que las condiciones se consten por escrito en contrato (Art. 330-B, LFT) y la subcontratación de servicios especializados o de ejecución de obras especializadas debe formalizarse mediante contrato por escrito (Art. 14, LFT).  \n\nEl escrito de las condiciones de trabajo deberá contener, entre otros datos, nombre y domicilio de las partes, tipo de contrato, servicio a prestarse, lugar de trabajo, duración de la jornada, forma y monto del salario, día y lugar de pago y demás condiciones pactadas (Art. 25, LFT).",
+      "citas": [
+        "24",
+        "390",
+        "282",
+        "330-B",
+        "14",
+        "25"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta refleja fielmente los artículos citados (arts. 24, 25, 26, 390, 282, 330-B, 14) y responde correctamente que, en lo general, las condiciones deben constar por escrito y detalla excepciones y requisitos.",
+      "tokens_contexto": 2346,
+      "tokens_prompt": 2906,
+      "latencias_ms": {
+        "recuperacion": 9739,
+        "generacion": 6515,
+        "total": 16254
+      },
+      "consulta_reescrita": "¿Es obligatoria la formalización por escrito del contrato individual de trabajo entre patrón y trabajador?"
+    },
+    {
+      "id": "q30",
+      "pregunta": "¿Hay un tope para lo que me pueden dar de PTU?",
+      "categoria": "ptu",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "127"
+      ],
+      "recuperados": [
+        [
+          "127"
+        ],
+        [
+          "117"
+        ],
+        [
+          "120"
+        ],
+        [
+          "131"
+        ],
+        [
+          "126"
+        ],
+        [
+          "125"
+        ],
+        [
+          "291"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Sí. El monto de la participación tiene como límite máximo tres meses del salario del trabajador o el promedio de la participación recibida en los últimos tres años; se aplicará el monto que resulte más favorable al trabajador. (Art. 127, LFT)\n\nAdemás, para los trabajadores cuyos ingresos deriven exclusivamente de su trabajo y los que se dediquen al cuidado de bienes que produzcan rentas o al cobro de créditos e intereses, la participación no podrá exceder de un mes de salario. (Art. 127, LFT)",
+      "respuesta_modelo": "Sí. El monto de la participación tiene como límite máximo tres meses del salario del trabajador o el promedio de la participación recibida en los últimos tres años; se aplicará el monto que resulte más favorable al trabajador. (Art. 127, LFT)\n\nAdemás, para los trabajadores cuyos ingresos deriven exclusivamente de su trabajo y los que se dediquen al cuidado de bienes que produzcan rentas o al cobro de créditos e intereses, la participación no podrá exceder de un mes de salario. (Art. 127, LFT)",
+      "citas": [
+        "127"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta reproduce fielmente los límites del Art. 127 LFT: tope de tres meses o promedio de los últimos tres años (el que convenga) y el tope de un mes para ciertos trabajadores, por lo que es completa y respaldada por el contexto.",
+      "tokens_contexto": 1528,
+      "tokens_prompt": 2093,
+      "latencias_ms": {
+        "recuperacion": 16286,
+        "generacion": 4058,
+        "total": 20344
+      },
+      "consulta_reescrita": "¿Existe un límite máximo para la participación de los trabajadores en las utilidades empresariales (PTU) o tope aplicable a dicha retribución?"
+    },
+    {
+      "id": "q32",
+      "pregunta": "¿Los papás tienen derecho a permiso cuando nace su hijo?",
+      "categoria": "maternidad",
+      "debe_responder": true,
+      "articulos_esperados": [
+        "132"
+      ],
+      "recuperados": [
+        [
+          "132"
+        ],
+        [
+          "170"
+        ],
+        [
+          "5"
+        ],
+        [
+          "133"
+        ],
+        [
+          "28"
+        ],
+        [
+          "110"
+        ],
+        [
+          "97"
+        ],
+        [
+          "390 Bis"
+        ]
+      ],
+      "retrieval": {
+        "rank": 1,
+        "hit@1": 1.0,
+        "hit@5": 1.0,
+        "rr": 1.0,
+        "recall@5": 1.0,
+        "hit@ctx": 1.0,
+        "recall@ctx": 1.0
+      },
+      "respuesta": "Sí. Los padres trabajadores tienen derecho a permiso de paternidad de cinco días laborables con goce de sueldo por el nacimiento de sus hijos, y de igual manera en el caso de la adopción de un infante (Art. 132, LFT).",
+      "respuesta_modelo": "Sí. Los padres trabajadores tienen derecho a permiso de paternidad de cinco días laborables con goce de sueldo por el nacimiento de sus hijos, y de igual manera en el caso de la adopción de un infante (Art. 132, LFT).",
+      "citas": [
+        "132"
+      ],
+      "citas_invalidas": [],
+      "abstencion": false,
+      "cita_valida_modelo": true,
+      "cita_esperada": true,
+      "fidelidad": 5,
+      "correccion": 5,
+      "justificacion": "La respuesta corresponde exactamente al artículo 132, fracción XXVII Bis de la LFT que otorga permiso de paternidad de cinco días laborables con goce de sueldo por nacimiento o adopción.",
+      "tokens_contexto": 5054,
+      "tokens_prompt": 5619,
+      "latencias_ms": {
+        "recuperacion": 15079,
+        "generacion": 2762,
+        "total": 17841
+      },
+      "consulta_reescrita": "¿Tiene el trabajador derecho a licencia por paternidad al nacimiento de su hijo conforme a la Ley Federal del Trabajo?"
+    },
+    {
+      "id": "q37",
+      "pregunta": "¿Cuánto ISR me deben retener de mi aguinaldo?",
+      "categoria": "fuera_de_alcance",
+      "debe_responder": false,
+      "articulos_esperados": [],
+      "recuperados": [
+        [
+          "87"
+        ],
+        [
+          "280"
+        ],
+        [
+          "804"
+        ],
+        [
+          "291-F"
+        ],
+        [
+          "288"
+        ],
+        [
+          "291-C"
+        ]
+      ],
+      "retrieval": {
+        "rank": null,
+        "hit@1": 0.0,
+        "hit@5": 0.0,
+        "rr": 0.0,
+        "recall@5": 0.0,
+        "hit@ctx": 0.0,
+        "recall@ctx": 0.0
+      },
+      "respuesta": "No encontré esto en la LFT.",
+      "respuesta_modelo": "No encontré esto en la LFT.",
+      "citas": [],
+      "citas_invalidas": [],
+      "abstencion": true,
+      "cita_valida_modelo": null,
+      "cita_esperada": false,
+      "fidelidad": null,
+      "correccion": null,
+      "justificacion": "",
+      "tokens_contexto": 1434,
+      "tokens_prompt": 2000,
+      "latencias_ms": {
+        "recuperacion": 16130,
+        "generacion": 2137,
+        "total": 18267
+      },
+      "consulta_reescrita": "Determinación del impuesto sobre la renta a retener por concepto de gratificación anual (aguinaldo) conforme a la normativa fiscal aplicable."
+    },
+    {
+      "id": "q38",
+      "pregunta": "¿Cómo tramito mi número de seguridad social?",
+      "categoria": "fuera_de_alcance",
+      "debe_responder": false,
+      "articulos_esperados": [],
+      "recuperados": [
+        [
+          "899-C"
+        ],
+        [
+          "899-A"
+        ],
+        [
+          "899-D"
+        ],
+        [
+          "291-K"
+        ],
+        [
+          "966 Ter"
+        ],
+        [
+          "784"
+        ]
+      ],
+      "retrieval": {
+        "rank": null,
+        "hit@1": 0.0,
+        "hit@5": 0.0,
+        "rr": 0.0,
+        "recall@5": 0.0,
+        "hit@ctx": 0.0,
+        "recall@ctx": 0.0
+      },
+      "respuesta": "No encontré esto en la LFT.",
+      "respuesta_modelo": "No encontré esto en la LFT.",
+      "citas": [],
+      "citas_invalidas": [],
+      "abstencion": true,
+      "cita_valida_modelo": null,
+      "cita_esperada": false,
+      "fidelidad": null,
+      "correccion": null,
+      "justificacion": "",
+      "tokens_contexto": 2414,
+      "tokens_prompt": 2974,
+      "latencias_ms": {
+        "recuperacion": 16844,
+        "generacion": 2389,
+        "total": 19233
+      },
+      "consulta_reescrita": "¿Cuál es el procedimiento administrativo para la inscripción y asignación del Número de Seguridad Social ante el Instituto Mexicano del Seguro Social?"
+    },
+    {
+      "id": "q39",
+      "pregunta": "¿Cuánto cuesta un abogado laboral en Guadalajara?",
+      "categoria": "fuera_de_alcance",
+      "debe_responder": false,
+      "articulos_esperados": [],
+      "recuperados": [
+        [
+          "48 Bis"
+        ],
+        [
+          "48"
+        ],
+        [
+          "539-B"
+        ],
+        [
+          "590-D"
+        ],
+        [
+          "28"
+        ],
+        [
+          "684-A"
+        ],
+        [
+          "539"
+        ],
+        [
+          "25"
+        ]
+      ],
+      "retrieval": {
+        "rank": null,
+        "hit@1": 0.0,
+        "hit@5": 0.0,
+        "rr": 0.0,
+        "recall@5": 0.0,
+        "hit@ctx": 0.0,
+        "recall@ctx": 0.0
+      },
+      "respuesta": "No encontré esto en la LFT.",
+      "respuesta_modelo": "No encontré esto en la LFT.",
+      "citas": [],
+      "citas_invalidas": [],
+      "abstencion": true,
+      "cita_valida_modelo": null,
+      "cita_esperada": false,
+      "fidelidad": null,
+      "correccion": null,
+      "justificacion": "",
+      "tokens_contexto": 4724,
+      "tokens_prompt": 5292,
+      "latencias_ms": {
+        "recuperacion": 18350,
+        "generacion": 1467,
+        "total": 19817
+      },
+      "consulta_reescrita": "¿Cuál es la remuneración por servicios profesionales de asesoría y representación laboral en Guadalajara?"
+    },
+    {
+      "id": "q40",
+      "pregunta": "¿Cuál es el salario mínimo de este año?",
+      "categoria": "fuera_de_alcance",
+      "debe_responder": false,
+      "articulos_esperados": [],
+      "recuperados": [
+        [
+          "90"
+        ],
+        [
+          "570"
+        ],
+        [
+          "94"
+        ],
+        [
+          "85"
+        ],
+        [
+          "92"
+        ]
+      ],
+      "retrieval": {
+        "rank": null,
+        "hit@1": 0.0,
+        "hit@5": 0.0,
+        "rr": 0.0,
+        "recall@5": 0.0,
+        "hit@ctx": 0.0,
+        "recall@ctx": 0.0
+      },
+      "respuesta": "No encontré esto en la LFT.",
+      "respuesta_modelo": "No encontré esto en la LFT.",
+      "citas": [],
+      "citas_invalidas": [],
+      "abstencion": true,
+      "cita_valida_modelo": null,
+      "cita_esperada": false,
+      "fidelidad": null,
+      "correccion": null,
+      "justificacion": "",
+      "tokens_contexto": 917,
+      "tokens_prompt": 1478,
+      "latencias_ms": {
+        "recuperacion": 14160,
+        "generacion": 2272,
+        "total": 16432
+      },
+      "consulta_reescrita": "¿Cuál es la cuantía del salario mínimo vigente durante el presente año laboral?"
+    }
+  ]
+}
