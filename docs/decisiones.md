@@ -591,7 +591,7 @@ pasaje resaltado que se "pinta" en 350 ms); sin respuesta (tarjeta punteada con 
 cargando (sin spinners: la etapa en curso y los números de artículo como pestañas en el panel);
 error con "Reintentar" (y "Abrir ajustes" si el problema es la clave); popover de Ajustes.
 
-**Decisiones del usuario sobre el diseño:**
+**Ajustes al diseño original:**
 - La marca ("§ Asistente LFT") va al centro de la pantalla de inicio, sobre el título.
 - El tipo de respuesta (Detallada = modo completo / Rápida = modo ligero) va **dentro del campo de
   pregunta**, no en Ajustes. Ajustes queda con la clave de API y el estado de la conexión.

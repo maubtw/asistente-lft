@@ -9,6 +9,7 @@
 ![Next.js](https://img.shields.io/badge/Next.js-16-4536A6?logo=nextdotjs&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-pgvector-4536A6?logo=postgresql&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/LLM-gpt--5--mini-4536A6?logo=openai&logoColor=white)
+![Licencia MIT](https://img.shields.io/badge/licencia-MIT-4536A6)
 
 <img src="docs/assets/demo.gif" alt="Demo: se escribe una pregunta sobre vacaciones, la respuesta cita los artículos 76, 78 y 81 y el panel resalta el pasaje exacto de la ley" width="100%">
 
@@ -157,5 +158,6 @@ tests/      parser, validación de pasajes, métricas, retriever, streaming y AP
 
 <sub>
 <b>Información orientativa. No sustituye asesoría legal profesional.</b><br>
-Texto de la ley: <a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LFT.pdf">Cámara de Diputados del H. Congreso de la Unión</a>.
+Código bajo licencia <a href="LICENSE">MIT</a>. El texto de la ley es de dominio público y proviene de la
+<a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LFT.pdf">Cámara de Diputados del H. Congreso de la Unión</a>.
 </sub>
